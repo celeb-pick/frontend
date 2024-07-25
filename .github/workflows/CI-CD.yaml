@@ -1,0 +1,54 @@
+name: CI-CD
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+jobs:
+  CI-CD:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 현재 브랜치로 체크아웃
+        uses: actions/checkout@v4
+
+      - name: PNPM 셋업
+        uses: pnpm/action-setup@v4
+        with:
+          version: "9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
+
+      - name: Node 환경 셋업 및 PNPM 캐싱
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: 환경 변수 주입
+        run: echo "${{ secrets.ENV }}" > .env
+
+      - name: 패키지 의존성 설치
+        run: pnpm install
+
+      - name: 프로젝트 빌드
+        run: pnpm build
+
+      - name: AWS Credentials 설정
+        if: github.event_name == 'push'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: S3에 배포
+        if: github.event_name == 'push'
+        run: |
+          aws s3 sync \
+            --region ${{ secrets.AWS_REGION }} \
+            dist s3://${{ secrets.AWS_S3_BUCKET_NAME }} \
+            --delete
+
+      - name: CloudFront 캐시 무효화
+        if: github.event_name == 'push'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CLOUDFRONT_ID }} --paths "/*"
