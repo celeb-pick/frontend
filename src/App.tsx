@@ -1,5 +1,5 @@
 function App() {
-  return <>celeb pick</>
+  return <>celeb pick</>;
 }
 
-export default App
+export default App;
