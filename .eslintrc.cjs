@@ -7,6 +7,8 @@ module.exports = {
     'airbnb/hooks',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
@@ -24,7 +26,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };
