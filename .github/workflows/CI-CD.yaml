@@ -28,6 +28,9 @@ jobs:
       - name: 패키지 의존성 설치
         run: pnpm install
 
+      - name: 코드 정적 분석
+        run: pnpm lint
+
       - name: 프로젝트 빌드
         run: pnpm build
 
