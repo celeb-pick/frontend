@@ -23,7 +23,9 @@ module.exports = {
   },
   plugins: ['react-refresh', 'prettier'],
   rules: {
-    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'react/no-unknown-property': ['error', { ignore: ['css', 'tw'] }],
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
