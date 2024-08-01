@@ -38,4 +38,12 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['**/constants.*'],
+      rules: {
+        'import/prefer-default-export': 'off',
+      },
+    },
+  ],
 };
