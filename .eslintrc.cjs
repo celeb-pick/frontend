@@ -45,7 +45,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/constants.*'],
+      files: ['**/constants.*', '**/constants/**'],
       rules: {
         'import/prefer-default-export': 'off',
       },
