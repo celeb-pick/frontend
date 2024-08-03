@@ -6,9 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Pretendard', ...defaultTheme.fontFamily.sans],
+        sans: ['Pretendard Variable', ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [],
+  plugins: [require('./tailwind-plugins/flex-center')],
 };

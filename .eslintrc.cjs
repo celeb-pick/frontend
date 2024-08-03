@@ -13,7 +13,12 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:storybook/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'tailwind.config.js',
+    'tailwind-plugins',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -23,7 +28,9 @@ module.exports = {
   },
   plugins: ['react-refresh', 'prettier'],
   rules: {
-    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'react/no-unknown-property': ['error', { ignore: ['css', 'tw'] }],
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -36,4 +43,12 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['**/constants.*', '**/constants/**'],
+      rules: {
+        'import/prefer-default-export': 'off',
+      },
+    },
+  ],
 };
