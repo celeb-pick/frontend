@@ -7,6 +7,7 @@ declare module 'twin.macro' {
 }
 
 declare module 'react' {
+  // eslint-disable-next-line
   interface DOMAttributes<T> {
     tw?: string;
     css?: CSSInterpolation;
