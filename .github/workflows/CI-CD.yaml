@@ -29,6 +29,11 @@ jobs:
       - name: 코드 정적 분석
         run: pnpm lint
 
+      - name: Chromatic으로 Storybook 테스트 및 배포
+        uses: chromaui/action@v11
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
       - name: 프로젝트 빌드
         run: pnpm build
 
