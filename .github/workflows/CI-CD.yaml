@@ -17,7 +17,7 @@ jobs:
       - name: Node 환경 셋업 및 PNPM 캐싱
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: ".nvmrc"
           cache: "pnpm"
 
       - name: 환경 변수 주입
