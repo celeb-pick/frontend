@@ -10,16 +10,16 @@ jobs:
     steps:
       - name: 현재 브랜치로 체크아웃
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: PNPM 셋업
         uses: pnpm/action-setup@v4
-        with:
-          version: "9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
 
       - name: Node 환경 셋업 및 PNPM 캐싱
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: ".nvmrc"
           cache: "pnpm"
 
       - name: 환경 변수 주입
@@ -27,11 +27,20 @@ jobs:
 
       - name: 패키지 의존성 설치
         run: pnpm install
+      
+      - name: TypeScript 타입 체크
+        run: pnpm exec tsc -b
 
       - name: 코드 정적 분석
         run: pnpm lint
 
+      - name: Chromatic으로 Storybook 테스트 및 배포
+        uses: chromaui/action@v11
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
       - name: 프로젝트 빌드
+        if: github.event_name == 'push'
         run: pnpm build
 
       - name: AWS Credentials 설정
