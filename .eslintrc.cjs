@@ -36,6 +36,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/prefer-default-export': 'off',
     'prettier/prettier': [
       'error',
       {
@@ -43,12 +44,4 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ['**/constants.*', '**/constants/**'],
-      rules: {
-        'import/prefer-default-export': 'off',
-      },
-    },
-  ],
 };
