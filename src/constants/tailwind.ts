@@ -5,9 +5,16 @@ import twDefaultColors from 'tailwindcss/colors';
  * `inherit`, `current`, `transparent`, `black`, `white`을 포함한
  * Tailwind의 모든 컬러셋 입니다.
  */
-export const tailwindAllColors = {
-  ...twDefaultColors,
-} as typeof twDefaultColors;
+export const tailwindAllColors: Omit<
+  typeof twDefaultColors,
+  'lightBlue' | 'warmGray' | 'trueGray' | 'coolGray' | 'blueGray'
+> = omit(twDefaultColors, [
+  'lightBlue',
+  'warmGray',
+  'trueGray',
+  'coolGray',
+  'blueGray',
+]);
 
 /**
  * `inherit`, `current`, `transparent`, `black`, `white`을 제외한
