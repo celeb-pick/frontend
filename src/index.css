@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --layout-max-width: 600px;
+  --bottom-tab-bar-height: calc(90px + env(safe-area-inset-bottom));
+}
