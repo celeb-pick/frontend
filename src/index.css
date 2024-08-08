@@ -4,5 +4,5 @@
 
 :root {
   --layout-max-width: 600px;
-  --bottom-tab-bar-height: calc(90px + env(safe-area-inset-bottom));
+  --bottom-tab-bar-height: calc(70px + env(safe-area-inset-bottom));
 }
