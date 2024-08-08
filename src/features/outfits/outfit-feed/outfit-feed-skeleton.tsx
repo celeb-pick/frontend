@@ -24,7 +24,7 @@ function OutfitFeedSkeleton({ ...props }: OutfitFeedSkeletonProps) {
   }, []);
 
   return (
-    <div css={[tw`flex flex-col max-w-lg min-w-[300px] w-full`]} {...props}>
+    <div css={[tw`flex flex-col w-full`]} {...props}>
       <PostSkeleton />
       <PostSkeleton />
       <PostSkeleton />
