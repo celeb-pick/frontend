@@ -10,5 +10,8 @@ export default {
       },
     },
   },
-  plugins: [require('./tailwind-plugins/flex-center')],
+  plugins: [
+    require('./tailwind-plugins/flex-center'),
+    require('./tailwind-plugins/line-clamp'),
+  ],
 };
