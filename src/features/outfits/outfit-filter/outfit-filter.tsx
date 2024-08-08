@@ -12,7 +12,9 @@ interface OutfitFilterProps extends ComponentPropsWithoutRef<'div'> {}
 function OutfitFilter({ ...props }: OutfitFilterProps) {
   return (
     <div
-      css={[tw`z-10 sticky top-0 flex justify-end gap-x-3 p-2 bg-white`]}
+      css={[
+        tw`z-10 sticky top-0 flex justify-end gap-x-3 p-2 backdrop-blur-sm`,
+      ]}
       {...props}
     >
       <GenderSelect />
