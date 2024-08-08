@@ -35,6 +35,7 @@ jobs:
         run: pnpm lint
 
       - name: Chromatic으로 Storybook 테스트 및 배포
+        if: github.event_name == 'pull_request'
         uses: chromaui/action@v11
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
