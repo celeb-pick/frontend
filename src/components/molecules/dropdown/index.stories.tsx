@@ -13,7 +13,7 @@ const meta = {
       },
       table: {
         type: {
-          summary: 'string | number | null',
+          summary: 'string | null | undefined',
         },
       },
     },

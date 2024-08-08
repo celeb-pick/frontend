@@ -62,7 +62,7 @@ function MaterialSymbol({
 
   return (
     <span
-      css={{ fontVariationSettings, fontSize: `${size}px` }}
+      css={{ fontVariationSettings, fontSize: size }}
       className={clsx('material-symbols-rounded', className)}
       {...props}
     >

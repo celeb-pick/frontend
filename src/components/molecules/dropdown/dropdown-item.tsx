@@ -24,7 +24,7 @@ function DropdownItem({ value, children, ...props }: DropdownItemProps) {
       onClick={handleClick}
       onKeyDown={() => {}}
       css={[
-        tw`flex-y-center h-10 px-5 font-medium whitespace-nowrap cursor-pointer hover:bg-gray-200`,
+        tw`flex-y-center h-9 px-4 font-medium whitespace-nowrap cursor-pointer select-none hover:bg-gray-200`,
       ]}
     >
       {children || value}

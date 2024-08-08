@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import { DropdownValueType } from '../dropdown/types';
 
-export type SelectOptionsType = Array<{
-  value: DropdownValueType;
+export type SelectOptionsType<T = string> = Array<{
+  value: T | null | undefined;
   label?: ReactNode;
 }>;

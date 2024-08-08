@@ -9,7 +9,7 @@ import type { DropdownValueType } from './types';
 
 export interface DropdownContextType {
   value: DropdownValueType;
-  setValue: Dispatch<SetStateAction<DropdownValueType>>;
+  setValue: (value: DropdownValueType) => void;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }

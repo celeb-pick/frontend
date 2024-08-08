@@ -26,7 +26,7 @@ const outlineStyle = (color: ChipProps['color']) => {
   }
   return css`
     color: ${tailwindColors[color]['400']};
-    border-color: ${tailwindColors[color]['300']};
+    border: solid 1px ${tailwindColors[color]['300']};
   `;
 };
 
@@ -35,8 +35,8 @@ const fillStyle = (color: ChipProps['color']) => {
     return null;
   }
   return css`
-    background-color: ${tailwindColors[color]['400']};
-    color: white;
+    color: ${tailwindColors[color]['600']};
+    background-color: ${tailwindColors[color]['100']};
   `;
 };
 
@@ -53,14 +53,8 @@ function Chip({
     variant === 'filled' ? fillStyle(color) : outlineStyle(color);
 
   return (
-    <div
-      css={[
-        tw`px-3 py-0.5 border-solid border w-fit rounded-3xl`,
-        variantStyle,
-      ]}
-      {...props}
-    >
-      <span tw="text-sm font-medium">{label}</span>
+    <div css={[tw`px-2.5 py-0.5 w-fit rounded-3xl`, variantStyle]} {...props}>
+      <span tw="text-sm font-semibold whitespace-nowrap">{label}</span>
     </div>
   );
 }

@@ -1,1 +1,1 @@
-export type DropdownValueType = string | number | null;
+export type DropdownValueType = string | null | undefined;

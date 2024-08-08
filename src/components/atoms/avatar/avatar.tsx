@@ -44,17 +44,21 @@ function AvatarIcon({
  * 아이콘 아바타와 이미지 아바타로 사용할 수 있는 컴포넌트 입니다.
  */
 function Avatar({ src, alt, size = 32, ...props }: AvatarProps) {
-  const pxSize = `${size}px`;
+  const iconSize = Math.max(size - 4, 0);
 
   return (
     <div
       css={[
         tw`relative flex-center rounded-full bg-gray-300`,
-        { width: pxSize, height: pxSize },
+        { width: size, height: size },
       ]}
       {...props}
     >
-      {src ? <AvatarImage src={src} alt={alt} /> : <AvatarIcon size={size} />}
+      {src ? (
+        <AvatarImage src={src} alt={alt} />
+      ) : (
+        <AvatarIcon size={iconSize} />
+      )}
     </div>
   );
 }

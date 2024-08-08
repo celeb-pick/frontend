@@ -13,7 +13,7 @@ const meta = {
       },
       table: {
         type: {
-          summary: 'string | number | null',
+          summary: 'string | null | undefined',
         },
       },
     },
@@ -23,6 +23,11 @@ const meta = {
       },
     },
     options: {
+      control: {
+        disable: true,
+      },
+    },
+    placeholder: {
       control: {
         disable: true,
       },

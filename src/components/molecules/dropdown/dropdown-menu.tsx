@@ -1,6 +1,5 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import tw from 'twin.macro';
-import FadeTransition from '../../common/fade-transition/fade-transition';
 import useDropdownContext from './hooks';
 
 interface DropdownMenuProps extends ComponentPropsWithoutRef<'ul'> {
@@ -10,17 +9,19 @@ interface DropdownMenuProps extends ComponentPropsWithoutRef<'ul'> {
 function DropdownMenu({ children, ...props }: DropdownMenuProps) {
   const { open } = useDropdownContext();
 
+  if (!open) {
+    return null;
+  }
+
   return (
-    <FadeTransition in={open}>
-      <ul
-        css={[
-          tw`absolute bottom-0 w-full py-2 overflow-x-hidden overflow-y-auto translate-y-full rounded shadow-md shadow-gray-400`,
-        ]}
-        {...props}
-      >
-        {children}
-      </ul>
-    </FadeTransition>
+    <ul
+      css={[
+        tw`z-10 absolute bottom-0 w-full py-2 overflow-x-hidden overflow-y-auto translate-y-full rounded shadow-md shadow-gray-400 bg-white`,
+      ]}
+      {...props}
+    >
+      {children}
+    </ul>
   );
 }
 

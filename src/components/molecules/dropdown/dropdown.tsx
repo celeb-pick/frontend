@@ -1,8 +1,6 @@
 import {
   ComponentPropsWithoutRef,
-  Dispatch,
   ReactNode,
-  SetStateAction,
   useCallback,
   useRef,
   useState,
@@ -21,7 +19,7 @@ export interface DropdownProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * `Item`이 클릭 되면 해당 `setState` 함수가 호출 됩니다.
    */
-  onChangeValue: Dispatch<SetStateAction<DropdownValueType>>;
+  onChangeValue: (value: DropdownValueType) => void;
 
   /**
    * 합성 컴포넌트, 일반 HTMLElement 등이 올 수 있습니다.
@@ -66,7 +64,7 @@ function Dropdown({ value, onChangeValue, children, ...props }: DropdownProps) {
     >
       <div
         ref={dropdownRef}
-        css={[tw`relative flex flex-col w-fit min-w-[120px]`]}
+        css={[tw`relative flex flex-col w-fit min-w-[120px] text-sm`]}
         {...props}
       >
         {children}
