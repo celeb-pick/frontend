@@ -5,6 +5,10 @@ import GenderSelect from './gender-select';
 
 interface OutfitFilterProps extends ComponentPropsWithoutRef<'div'> {}
 
+/**
+ * `gender`, `celebCategory` query parameter 값을 선택하는 필터 입니다.
+ * `OutfitFeed` 컴포넌트와 같이 사용될 수 있습니다.
+ */
 function OutfitFilter({ ...props }: OutfitFilterProps) {
   return (
     <div
