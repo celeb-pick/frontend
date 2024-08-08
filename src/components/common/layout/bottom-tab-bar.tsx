@@ -20,7 +20,7 @@ function TabNavigator({ icon, label, to }: TabNavigatorProps) {
   return (
     <Link
       css={[
-        tw`flex flex-col gap-y-0.5 justify-between items-center h-full px-4 py-2`,
+        tw`flex flex-col gap-y-1 justify-center items-center h-full px-4 py-2`,
       ]}
       to={to}
     >
@@ -32,7 +32,7 @@ function TabNavigator({ icon, label, to }: TabNavigatorProps) {
 
 const layoutStyle = tw`
   z-20 fixed bottom-0 max-w-[calc(var(--layout-max-width) - 4px)] min-w-[--layout-min-width]
-  w-full h-[--bottom-tab-bar-height] bg-white border-t border-solid border-gray-100
+  w-full h-[--bottom-tab-bar-height] pb-[env(safe-area-inset-bottom)] bg-white border-t border-solid border-gray-100
 `;
 
 function BottomTabBar() {
