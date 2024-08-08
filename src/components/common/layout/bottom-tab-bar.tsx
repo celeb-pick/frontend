@@ -31,8 +31,8 @@ function TabNavigator({ icon, label, to }: TabNavigatorProps) {
 }
 
 const layoutStyle = tw`
-  z-20 fixed bottom-0 max-w-[calc(var(--layout-max-width) - 4px)] w-full h-[--bottom-tab-bar-height]
-  bg-white border-t border-solid border-gray-100
+  z-20 fixed bottom-0 max-w-[calc(var(--layout-max-width) - 4px)] min-w-[--layout-min-width]
+  w-full h-[--bottom-tab-bar-height] bg-white border-t border-solid border-gray-100
 `;
 
 function BottomTabBar() {

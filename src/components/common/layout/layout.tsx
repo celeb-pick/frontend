@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div
       css={[
-        tw`max-w-[--layout-max-width] w-full min-h-[100vh] mx-auto border-solid border-x-2 border-gray-100`,
+        tw`max-w-[--layout-max-width] min-w-[--layout-min-width] w-full min-h-[100vh] mx-auto border-solid border-x-2 border-gray-100`,
       ]}
     >
       <AppBar />
