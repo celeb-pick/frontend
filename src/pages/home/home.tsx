@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import OutfitFeedSkeleton from '../../features/outfits/outfit-feed/outfit-feed-skeleton';
 import OutfitFilter from '../../features/outfits/outfit-filter';
-import HomeOutfitFeed from './home-outfit.feed';
+import HomeOutfitFeed from './home-outfit-feed';
 
 function HomePage() {
   return (
