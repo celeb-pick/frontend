@@ -1,6 +1,7 @@
 import { cloneElement, ComponentPropsWithoutRef, ReactElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import tw from 'twin.macro';
+import useAuthStatus from '../../../hooks/useAuthStatus';
 import MaterialSymbol from '../../atoms/material-symbol';
 
 interface TabNavigatorProps {
@@ -36,6 +37,8 @@ const layoutStyle = tw`
 `;
 
 function BottomTabBar() {
+  const { isAuthenticated } = useAuthStatus();
+
   return (
     <div css={[layoutStyle, tw`flex-y-center justify-around`]}>
       <TabNavigator
@@ -61,7 +64,8 @@ function BottomTabBar() {
       <TabNavigator
         icon={<MaterialSymbol name="person" size={29} wght={300} />}
         label="마이"
-        to=""
+        // TODO: 로그인시 '/users/me' 내 프로필 페이지로 라우팅
+        to={isAuthenticated ? '' : '/login'}
       />
     </div>
   );
