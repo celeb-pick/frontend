@@ -6,15 +6,55 @@ import { isEmptyArray } from '../../../utils/array';
 type InputProps = ComponentPropsWithRef<'input'>;
 
 export interface TextFieldProps {
+  /**
+   * 컴포넌트의 value값 입니다.
+   */
   value: InputProps['value'];
+
+  /**
+   * 컴포넌트의 value값이 변할 때 실행 되는 콜백 함수 입니다.
+   */
   onChange: InputProps['onChange'];
+
+  /**
+   * `text`, `email` 등 타입을 지정할 수 있습니다.
+   */
   type?: InputProps['type'];
+
+  /**
+   * 마운트시 포커스 여부를 정할 수 있습니다.
+   */
+  autoFocus?: boolean;
+
+  /**
+   * 라벨 텍스트 입니다.
+   */
   label: string;
+
+  /**
+   * `disabled` 상태를 나타낼 수 있습니다.
+   */
+  disabled?: boolean;
+
+  /**
+   * 에러 상태를 나타낼 수 있습니다.
+   */
   hasError?: boolean;
+
+  /**
+   * 컴포넌트 하단에 에러 메세지를 표시할 수 있습니다.
+   */
   errorMessages?: Array<string>;
+
+  /**
+   * 컴포넌트의 Wrapper 스타일을 지정할 수 있습니다.
+   */
   className?: string;
 }
 
+/**
+ * 라벨, 에러 메세지 등을 포함하고 있는 Input 컴포넌트 입니다.
+ */
 export const TextField = forwardRef(function TextField(
   props: TextFieldProps,
   ref: ForwardedRef<HTMLInputElement>
