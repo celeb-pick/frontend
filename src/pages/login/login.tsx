@@ -1,31 +1,45 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import tw from 'twin.macro';
 import Button from '../../components/atoms/button';
 import TextField from '../../components/atoms/text-field';
+import useLogin from '../../hooks/mutations/useLogin';
+import useServerErrorResponse from '../../hooks/useServerErrorResponse';
+import { LoginErrorResponse } from '../../types/auth';
+import useLoginForm from './useLoginForm';
 
 function LoginPage() {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const loginForm = useLoginForm();
+  const { mutate, error, isPending } = useLogin();
+  const serverError = useServerErrorResponse<LoginErrorResponse>(error);
 
   return (
     <div className="layout-container flex-center">
-      <form css={[tw`flex-center flex-col w-72`]}>
+      <form
+        onSubmit={loginForm.handleSubmit((payload) => mutate({ payload }))}
+        css={[tw`flex-center flex-col w-72`]}
+      >
         <span css={[tw`font-bold text-4xl mb-16`]}>celeb pick</span>
         <TextField
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
           type="email"
           label="이메일"
+          value={loginForm.email.value}
+          onChange={loginForm.email.onChange}
+          hasError={!!error}
+          errorMessages={[loginForm.errors.email?.message]}
           autoFocus
           css={[tw`mb-1.5`]}
         />
         <TextField
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
           type="password"
           label="비밀번호"
+          value={loginForm.password.value}
+          onChange={loginForm.password.onChange}
           css={[tw`mb-1`]}
+          hasError={!!error}
+          errorMessages={[
+            loginForm.errors.password?.message,
+            serverError?.data.message,
+          ]}
         />
         <Link
           to="/"
@@ -33,7 +47,7 @@ function LoginPage() {
         >
           게스트로 이용하기
         </Link>
-        <Button type="submit" fullWidth css={[tw`mb-8`]}>
+        <Button type="submit" isLoading={isPending} fullWidth css={[tw`mb-8`]}>
           로그인
         </Button>
         <p css={[tw`font-medium`]}>
