@@ -7,3 +7,9 @@
   --layout-min-width: 350px;
   --bottom-tab-bar-height: calc(70px + env(safe-area-inset-bottom));
 }
+
+@layer components {
+  .layout-container {
+    @apply mx-auto min-h-[100vh] w-full min-w-[--layout-min-width] max-w-[--layout-max-width] border-x-2 border-solid border-gray-100;
+  }
+}

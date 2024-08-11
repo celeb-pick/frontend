@@ -5,11 +5,7 @@ import BottomTabBar from './bottom-tab-bar';
 
 function Layout() {
   return (
-    <div
-      css={[
-        tw`max-w-[--layout-max-width] min-w-[--layout-min-width] w-full min-h-[100vh] mx-auto border-solid border-x-2 border-gray-100`,
-      ]}
-    >
+    <div className="layout-container">
       <AppBar />
       <div css={[tw`pb-[--bottom-tab-bar-height]`]}>
         <Outlet />
