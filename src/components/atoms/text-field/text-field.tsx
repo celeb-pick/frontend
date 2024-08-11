@@ -55,7 +55,7 @@ export interface TextFieldProps {
 /**
  * 라벨, 에러 메세지 등을 포함하고 있는 Input 컴포넌트 입니다.
  */
-export const TextField = forwardRef(function TextField(
+const TextField = forwardRef(function TextField(
   props: TextFieldProps,
   ref: ForwardedRef<HTMLInputElement>
 ) {
