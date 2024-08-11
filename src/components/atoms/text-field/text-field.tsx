@@ -44,7 +44,7 @@ export interface TextFieldProps {
   /**
    * 컴포넌트 하단에 에러 메세지를 표시할 수 있습니다.
    */
-  errorMessages?: Array<string>;
+  errorMessages?: Array<string | undefined | null>;
 
   /**
    * 컴포넌트의 Wrapper 스타일을 지정할 수 있습니다.
@@ -70,12 +70,13 @@ const TextField = forwardRef(function TextField(
     errorMessages = [],
     className,
   } = props;
-
   const inputId = useId();
-  const error = hasError || !isEmptyArray(errorMessages);
+
+  const filteredErrorMessages = errorMessages.filter((message) => !!message);
+  const error = hasError || !isEmptyArray(filteredErrorMessages);
 
   return (
-    <div className={clsx('flex flex-col gap-y-2', className)}>
+    <div className={clsx('flex w-full flex-col gap-y-2', className)}>
       <label
         htmlFor={inputId}
         css={[
@@ -99,7 +100,7 @@ const TextField = forwardRef(function TextField(
         />
       </label>
       <ul css={[tw`ml-1`]}>
-        {errorMessages.map((message) => (
+        {filteredErrorMessages.map((message) => (
           <li key={message} css={[tw`text-red-500 text-sm`]}>
             {message}
           </li>
