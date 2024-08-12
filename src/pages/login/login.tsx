@@ -27,14 +27,14 @@ function LoginPage() {
           hasError={!!error}
           errorMessages={[loginForm.errors.email?.message]}
           autoFocus
-          css={[tw`mb-1.5`]}
+          css={[tw`mb-3.5`]}
         />
         <TextField
           type="password"
           label="비밀번호"
           value={loginForm.password.value}
           onChange={loginForm.password.onChange}
-          css={[tw`mb-1`]}
+          css={[tw`mb-2.5`]}
           hasError={!!error}
           errorMessages={[
             loginForm.errors.password?.message,
