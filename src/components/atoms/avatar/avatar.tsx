@@ -1,6 +1,6 @@
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import { ComponentPropsWithoutRef } from 'react';
 import tw from 'twin.macro';
-import MaterialSymbol from '../material-symbol';
 
 interface AvatarProps extends ComponentPropsWithoutRef<'div'> {
   /**
@@ -21,30 +21,11 @@ interface AvatarProps extends ComponentPropsWithoutRef<'div'> {
   size?: number;
 }
 
-function AvatarImage({ ...props }: ComponentPropsWithoutRef<'img'>) {
-  return <img tw="w-full h-full rounded-full" alt="" {...props} />;
-}
-
-function AvatarIcon({
-  ...props
-}: Omit<ComponentPropsWithoutRef<typeof MaterialSymbol>, 'name'>) {
-  return (
-    <MaterialSymbol
-      name="person"
-      fill
-      wght={200}
-      opsz={0}
-      tw="text-white"
-      {...props}
-    />
-  );
-}
-
 /**
  * 아이콘 아바타와 이미지 아바타로 사용할 수 있는 컴포넌트 입니다.
  */
 function Avatar({ src, alt, size = 32, ...props }: AvatarProps) {
-  const iconSize = Math.max(size - 4, 0);
+  const iconSize = Math.max(size - 8, 0);
 
   return (
     <div
@@ -55,9 +36,9 @@ function Avatar({ src, alt, size = 32, ...props }: AvatarProps) {
       {...props}
     >
       {src ? (
-        <AvatarImage src={src} alt={alt} />
+        <img src={src} alt={alt} tw="w-full h-full rounded-full" />
       ) : (
-        <AvatarIcon size={iconSize} />
+        <PersonRoundedIcon css={[tw`text-white`, { fontSize: iconSize }]} />
       )}
     </div>
   );

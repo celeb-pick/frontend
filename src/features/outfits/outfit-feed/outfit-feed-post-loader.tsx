@@ -16,7 +16,7 @@ function OutfitFeedPostLoader({
 
   return (
     <div {...props}>
-      <Spinner size={50} wght={600} css={[tw`h-28 text-blue-600`]} />
+      <Spinner size={50} css={[tw`h-28`]} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 import IconButton from '../../components/atoms/icon-button';
-import MaterialSymbol from '../../components/atoms/material-symbol';
 
 function SignupAppBar() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function SignupAppBar() {
       ]}
     >
       <IconButton
-        icon={<MaterialSymbol name="arrow_back_ios" />}
+        icon={<ArrowBackIosNewRoundedIcon />}
         onClick={() => navigate('/login')}
       />
       <span

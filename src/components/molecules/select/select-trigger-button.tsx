@@ -1,5 +1,5 @@
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { ComponentPropsWithoutRef } from 'react';
-import MaterialSymbol from '../../atoms/material-symbol';
 import { DropdownValueType } from '../dropdown/types';
 
 interface SelectTriggerButtonProps
@@ -15,7 +15,7 @@ function SelectTriggerButton({ value, ...props }: SelectTriggerButtonProps) {
       {...props}
     >
       <span className="font-medium text-gray-500">{value}</span>
-      <MaterialSymbol name="keyboard_arrow_down" className="text-gray-500" />
+      <KeyboardArrowDownRoundedIcon className="text-gray-500" />
     </button>
   );
 }
