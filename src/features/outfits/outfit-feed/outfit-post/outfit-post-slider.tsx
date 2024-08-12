@@ -6,6 +6,7 @@ import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import tw from 'twin.macro';
 import Chip from '../../../../components/atoms/chip';
+import IconButton from '../../../../components/atoms/icon-button';
 import MaterialSymbol from '../../../../components/atoms/material-symbol';
 import { OutfitPostListResponse } from '../../../../types/outfit';
 
@@ -43,22 +44,19 @@ function OutfitInfo({
 
   return (
     <div css={[tw`flex-y-center gap-x-1 pl-1 pr-4 py-2.5`]}>
-      <button
+      <IconButton
         onClick={handleClickScrapButton}
-        type="button"
-        aria-label="스크랩 버튼"
-        css={[
-          tw`flex-center gap-x-0.5 p-1.5 rounded-xl`,
-          isScrapped ? tw`hover:bg-yellow-100` : tw`hover:bg-gray-100`,
-        ]}
-      >
-        <MaterialSymbol
-          name="bookmark"
-          fill={!!isScrapped}
-          css={[isScrapped && tw`text-yellow-300`]}
-        />
-        <span css={[tw`font-medium`]}>{scrapCount}</span>
-      </button>
+        icon={
+          <>
+            <MaterialSymbol
+              name="bookmark"
+              fill={!!isScrapped}
+              css={[tw`mr-0.5`, isScrapped && tw`text-yellow-300`]}
+            />
+            <span css={[tw`font-medium`]}>{scrapCount}</span>
+          </>
+        }
+      />
       <Chip
         label={chipLabel}
         color={type === 'outfitPost' ? 'indigo' : 'gray'}
