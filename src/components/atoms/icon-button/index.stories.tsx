@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import MaterialSymbol from '../material-symbol';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import IconButton from './index';
 
 const meta = {
@@ -25,6 +25,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    icon: <MaterialSymbol name="bookmark" />,
+    icon: <BookmarkBorderOutlinedIcon />,
   },
 };

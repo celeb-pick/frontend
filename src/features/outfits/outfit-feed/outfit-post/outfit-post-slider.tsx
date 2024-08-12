@@ -1,3 +1,6 @@
+import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
+import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -7,7 +10,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import tw from 'twin.macro';
 import Chip from '../../../../components/atoms/chip';
 import IconButton from '../../../../components/atoms/icon-button';
-import MaterialSymbol from '../../../../components/atoms/material-symbol';
 import { OutfitPostListResponse } from '../../../../types/outfit';
 
 interface OutfitInfoProps {
@@ -42,16 +44,18 @@ function OutfitInfo({
   // TODO: 스크랩 토글 기능 추가
   const handleClickScrapButton = () => {};
 
+  const BookmarkIcon = isScrapped
+    ? BookmarkRoundedIcon
+    : BookmarkBorderRoundedIcon;
+
   return (
     <div css={[tw`flex-y-center gap-x-1 pl-1 pr-4 py-2.5`]}>
       <IconButton
         onClick={handleClickScrapButton}
         icon={
           <>
-            <MaterialSymbol
-              name="bookmark"
-              fill={!!isScrapped}
-              css={[tw`mr-0.5`, isScrapped && tw`text-yellow-300`]}
+            <BookmarkIcon
+              css={[tw`mr-0.5`, isScrapped && tw`fill-yellow-300`]}
             />
             <span css={[tw`font-medium`]}>{scrapCount}</span>
           </>
@@ -82,7 +86,7 @@ function PurchaseIcon({ purchaseLink }: PurchaseIconProps) {
       ]}
       rel="noreferrer"
     >
-      <MaterialSymbol size={20} name="shopping_bag" css={[tw`text-gray-100`]} />
+      <ShoppingBagOutlinedIcon css={[tw`text-xl text-gray-100`]} />
     </a>
   );
 }
