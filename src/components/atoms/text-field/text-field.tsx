@@ -99,13 +99,15 @@ const TextField = forwardRef(function TextField(
           css={[tw`w-full outline-0`]}
         />
       </label>
-      <ul css={[tw`ml-1`]}>
-        {filteredErrorMessages.map((message) => (
-          <li key={message} css={[tw`text-red-500 text-sm`]}>
-            {message}
-          </li>
-        ))}
-      </ul>
+      {error && (
+        <ul css={[tw`ml-1`]}>
+          {filteredErrorMessages.map((message) => (
+            <li key={message} css={[tw`text-red-500 text-sm`]}>
+              {message}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 });
