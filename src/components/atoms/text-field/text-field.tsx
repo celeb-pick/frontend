@@ -80,7 +80,7 @@ const TextField = forwardRef(function TextField(
       <label
         htmlFor={inputId}
         css={[
-          tw`relative flex flex-col gap-y-0.5 border border-solid border-gray-400 rounded`,
+          tw`relative border border-solid border-gray-400 rounded`,
           !disabled &&
             tw`cursor-text focus-within:shadow-sm focus-within:shadow-gray-300`,
           disabled && tw`bg-gray-100 [&>input]:bg-gray-100`,
