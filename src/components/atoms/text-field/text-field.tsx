@@ -80,14 +80,16 @@ const TextField = forwardRef(function TextField(
       <label
         htmlFor={inputId}
         css={[
-          tw`flex flex-col gap-y-0.5 px-2.5 py-1 border border-solid border-gray-400 rounded`,
+          tw`relative border border-solid border-gray-400 rounded`,
           !disabled &&
             tw`cursor-text focus-within:shadow-sm focus-within:shadow-gray-300`,
           disabled && tw`bg-gray-100 [&>input]:bg-gray-100`,
           error && tw`border-red-500 [&>span]:text-red-500`,
         ]}
       >
-        <span css={[tw`text-gray-500 text-sm`]}>{label}</span>
+        <span css={[tw`absolute top-1 left-[10px]  text-gray-500 text-sm`]}>
+          {label}
+        </span>
         <input
           ref={ref}
           id={inputId}
@@ -96,7 +98,10 @@ const TextField = forwardRef(function TextField(
           value={value || ''}
           onChange={onChange}
           disabled={disabled}
-          css={[tw`w-full outline-0`]}
+          css={[
+            tw`w-full px-2.5 pt-6 pb-1 outline-0`,
+            { borderRadius: 'inherit' },
+          ]}
         />
       </label>
       {error && (
