@@ -4,6 +4,7 @@ import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 import Layout from '../components/common/layout/layout';
 import HomePage from '../pages/home';
 import LoginPage from '../pages/login';
+import SignupPage from '../pages/signup';
 
 type Router = ReturnType<typeof createBrowserRouter>;
 
@@ -25,6 +26,10 @@ const router: Router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    path: '/signup',
+    element: <SignupPage />,
   },
 ]);
 
