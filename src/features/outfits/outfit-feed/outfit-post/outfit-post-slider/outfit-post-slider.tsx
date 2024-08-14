@@ -25,7 +25,7 @@ function OutfitPostSlider({ outfitPost, ...props }: OutfitPostSliderProps) {
         <SwiperSlide>
           <OutfitImage src={outfitPost.imageUrl} alt={outfitPost.title} />
           <OutfitInfo
-            type="outfitPost"
+            outfitPostId={outfitPost.id}
             scrapCount={outfitPost.scrapCount}
             isScrapped={outfitPost.isScrapped}
             chipLabel={outfitPost.celebrity.name}
@@ -41,7 +41,7 @@ function OutfitPostSlider({ outfitPost, ...props }: OutfitPostSliderProps) {
               purchaseLink={outfitItem.purchaseLink}
             />
             <OutfitInfo
-              type="outfitItem"
+              outfitItemId={outfitItem.id}
               scrapCount={outfitItem.scrapCount}
               isScrapped={outfitItem.isScrapped}
               chipLabel={outfitItem.brand.name}
