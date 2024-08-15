@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import tw from 'twin.macro';
 import Button from '../../components/atoms/button';
 import TextField from '../../components/atoms/text-field';
+import Layout from '../../components/common/layout';
 import useLogin from '../../hooks/mutations/useLogin';
 import useServerErrorResponse from '../../hooks/useServerErrorResponse';
 import { LoginErrorResponse } from '../../types/auth';
@@ -13,7 +14,7 @@ function LoginPage() {
   const serverError = useServerErrorResponse<LoginErrorResponse>(error);
 
   return (
-    <div className="layout-container flex-center">
+    <Layout css={[tw`flex-center`]}>
       <form
         onSubmit={loginForm.handleSubmit((payload) => mutate({ payload }))}
         css={[tw`flex-center flex-col w-72`]}
@@ -57,7 +58,7 @@ function LoginPage() {
           </Link>
         </p>
       </form>
-    </div>
+    </Layout>
   );
 }
 
