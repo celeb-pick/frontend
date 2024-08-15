@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom';
 import tw from 'twin.macro';
 
-function AppBar() {
+function LogoAppBar() {
   return (
-    <div
-      css={[
-        tw`flex-y-center h-16 px-4 border-b border-solid border-gray-100 bg-white`,
-      ]}
-    >
+    <div className="custom-app-bar-container">
       <Link to="/" css={[tw`font-semibold text-xl py-4`]}>
         celeb pick
       </Link>
@@ -15,4 +11,4 @@ function AppBar() {
   );
 }
 
-export default AppBar;
+export default LogoAppBar;

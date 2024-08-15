@@ -1,16 +1,19 @@
-import { Outlet } from 'react-router-dom';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import tw from 'twin.macro';
-import AppBar from './app-bar';
-import BottomTabBar from './bottom-tab-bar';
 
-function Layout() {
+interface LayoutProps extends ComponentPropsWithoutRef<'div'> {
+  children: ReactNode;
+}
+
+function Layout({ children, ...props }: LayoutProps) {
   return (
-    <div className="layout-container">
-      <AppBar />
-      <div css={[tw`pb-[--bottom-tab-bar-height]`]}>
-        <Outlet />
-      </div>
-      <BottomTabBar />
+    <div
+      css={[
+        tw`mx-auto min-h-[100vh] w-full min-w-[--layout-min-width] max-w-[--layout-max-width] border-x-2 border-solid border-gray-100`,
+      ]}
+      {...props}
+    >
+      {children}
     </div>
   );
 }
