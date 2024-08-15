@@ -16,7 +16,7 @@ function IconButton({ icon, disabled, ...props }: IconButtonProps) {
   return (
     <button
       type="button"
-      css={[tw`flex-center p-2 hover:opacity-50 rounded-3xl`]}
+      css={[tw`flex-center p-2 rounded-3xl`, !disabled && tw`hover:opacity-50`]}
       disabled={disabled}
       {...props}
     >
