@@ -1,20 +1,15 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
-import { QueryParamProvider } from 'use-query-params';
-import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '../pages/home';
 import LoginPage from '../pages/login';
 import SignupPage from '../pages/signup';
+import RouteWrapper from './route-wrapper';
 
-type Router = ReturnType<typeof createBrowserRouter>;
+type RouterType = ReturnType<typeof createBrowserRouter>;
 
-const router: Router = createBrowserRouter([
+const router: RouterType = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <QueryParamProvider adapter={ReactRouter6Adapter}>
-        <Outlet />
-      </QueryParamProvider>
-    ),
+    element: <RouteWrapper />,
     children: [
       {
         path: '/',
@@ -32,4 +27,8 @@ const router: Router = createBrowserRouter([
   },
 ]);
 
-export default router;
+function Router() {
+  return <RouterProvider router={router} />;
+}
+
+export default Router;
