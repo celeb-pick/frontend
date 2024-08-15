@@ -1,12 +1,12 @@
-import SignupAppBar from './signup-app-bar';
+import Layout from '../../components/common/layout';
 import SignupForm from './signup-form';
 
 function SignupPage() {
   return (
-    <div className="layout-container">
-      <SignupAppBar />
+    <Layout>
+      <Layout.TitleWithBackAppBar title="회원가입" navigateTo="/login" />
       <SignupForm />
-    </div>
+    </Layout>
   );
 }
 

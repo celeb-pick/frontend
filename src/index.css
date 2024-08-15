@@ -9,7 +9,7 @@
 }
 
 @layer components {
-  .layout-container {
-    @apply mx-auto min-h-[100vh] w-full min-w-[--layout-min-width] max-w-[--layout-max-width] border-x-2 border-solid border-gray-100;
+  .custom-app-bar-container {
+    @apply h-16 border-b border-solid border-gray-100 bg-white px-4 flex-y-center;
   }
 }

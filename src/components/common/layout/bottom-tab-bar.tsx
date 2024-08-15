@@ -40,22 +40,27 @@ function BottomTabBar() {
   const { isAuthenticated } = useAuthStatus();
 
   return (
-    <div css={[layoutStyle, tw`flex-y-center justify-around`]}>
-      <TabNavigator icon={<HomeOutlinedIcon />} label="홈" to="/" />
-      <TabNavigator icon={<SearchRoundedIcon />} label="검색" to="" />
-      <TabNavigator icon={<AddBoxOutlinedIcon />} label="코디 추가" to="" />
-      <TabNavigator
-        icon={<BookmarkBorderOutlinedIcon />}
-        label="스크랩"
-        to=""
-      />
-      <TabNavigator
-        icon={<PersonOutlineOutlinedIcon />}
-        label="마이"
-        // TODO: 로그인시 '/users/me' 내 프로필 페이지로 라우팅
-        to={isAuthenticated ? '' : '/login'}
-      />
-    </div>
+    <>
+      {/* absolute로 차지한 BottomTabBar의 빈 공간을 채우는 div */}
+      <div css={[tw`h-[--bottom-tab-bar-height]`]} />
+
+      <div css={[layoutStyle, tw`flex-y-center justify-around`]}>
+        <TabNavigator icon={<HomeOutlinedIcon />} label="홈" to="/" />
+        <TabNavigator icon={<SearchRoundedIcon />} label="검색" to="" />
+        <TabNavigator icon={<AddBoxOutlinedIcon />} label="코디 추가" to="" />
+        <TabNavigator
+          icon={<BookmarkBorderOutlinedIcon />}
+          label="스크랩"
+          to=""
+        />
+        <TabNavigator
+          icon={<PersonOutlineOutlinedIcon />}
+          label="마이"
+          // TODO: 로그인시 '/users/me' 내 프로필 페이지로 라우팅
+          to={isAuthenticated ? '' : '/login'}
+        />
+      </div>
+    </>
   );
 }
 
