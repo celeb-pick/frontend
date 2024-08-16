@@ -3,15 +3,15 @@ import tw from 'twin.macro';
 import Button from '../../components/atoms/button';
 import TextField from '../../components/atoms/text-field';
 import useSignup from '../../hooks/mutations/useSignup';
-import useServerErrorResponse from '../../hooks/useServerErrorResponse';
 import { SignupErrorResponse } from '../../types/auth';
+import { getServerErrorResponse } from '../../utils/error';
 import UserGenderRadioGroup from './user-gender-radio-group';
 import useSignupForm from './useSignupForm';
 
 function SignupForm() {
   const signupForm = useSignupForm();
   const { mutate, error, isPending } = useSignup();
-  const serverError = useServerErrorResponse<SignupErrorResponse>(error);
+  const serverError = getServerErrorResponse<SignupErrorResponse>(error);
 
   return (
     <form

@@ -4,14 +4,14 @@ import Button from '../../components/atoms/button';
 import TextField from '../../components/atoms/text-field';
 import Layout from '../../components/common/layout';
 import useLogin from '../../hooks/mutations/useLogin';
-import useServerErrorResponse from '../../hooks/useServerErrorResponse';
 import { LoginErrorResponse } from '../../types/auth';
 import useLoginForm from './useLoginForm';
+import { getServerErrorResponse } from '../../utils/error';
 
 function LoginPage() {
   const loginForm = useLoginForm();
   const { mutate, error, isPending } = useLogin();
-  const serverError = useServerErrorResponse<LoginErrorResponse>(error);
+  const serverError = getServerErrorResponse<LoginErrorResponse>(error);
 
   return (
     <Layout css={[tw`flex-center`]}>
