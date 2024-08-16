@@ -1,6 +1,6 @@
-import { useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { useState } from 'react';
 import Dropdown from '.';
 import { DropdownValueType } from './types';
 
