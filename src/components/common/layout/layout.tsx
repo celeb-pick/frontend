@@ -22,7 +22,7 @@ function Layout({ children, ...props }: LayoutProps) {
   return (
     <div
       css={[
-        tw`mx-auto min-h-[100vh] w-full min-w-[--layout-min-width] max-w-[--layout-max-width] border-x-2 border-solid border-gray-100`,
+        tw`flex flex-col min-h-[100vh] w-full min-w-[--layout-min-width] max-w-[--layout-max-width] mx-auto border-x-2 border-solid border-gray-100`,
       ]}
       {...props}
     >
