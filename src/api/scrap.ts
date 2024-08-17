@@ -1,4 +1,25 @@
 import { axiosInstance } from '../config/axios';
+import {
+  MyScrapOutfitPostListRequest,
+  MyScrapOutfitPostListResponse,
+} from '../types/scrap';
+
+export const fetchMyScrapOutfitPosts = async (
+  req?: MyScrapOutfitPostListRequest,
+  page?: number
+) => {
+  return (
+    await axiosInstance.get<MyScrapOutfitPostListResponse>(
+      '/users/me/outfit-posts/scraps',
+      {
+        params: {
+          ...req?.queryParams,
+          page,
+        },
+      }
+    )
+  ).data;
+};
 
 export const scrapOutfitPost = async (outfitPostId: number) => {
   await axiosInstance.post(`/outfit-posts/${outfitPostId}/scraps/`);
