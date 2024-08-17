@@ -16,9 +16,6 @@ const useUnscrapOutfitItem = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['fetchOutfitPostList'] });
-      queryClient.invalidateQueries({
-        queryKey: ['fetchMyScrapOutfitPostList'],
-      });
     },
   });
 };
