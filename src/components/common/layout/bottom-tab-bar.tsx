@@ -51,7 +51,7 @@ function BottomTabBar() {
         <TabNavigator
           icon={<BookmarkBorderOutlinedIcon />}
           label="스크랩"
-          to=""
+          to="/users/me/scraps"
         />
         <TabNavigator
           icon={<PersonOutlineOutlinedIcon />}
