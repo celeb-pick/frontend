@@ -11,12 +11,23 @@ interface GridContentProps {
   pagesData: Array<MyScrapOutfitPostListResponse>;
 }
 
+function EmptyView() {
+  return (
+    <div className="h-40 flex-center">아직 스크랩한 코디가 없습니다😶</div>
+  );
+}
+
 function GridContent({ pagesData }: GridContentProps) {
   const navigate = useNavigate();
 
   const handleClickGridItem = (outfitPostId: number) => {
     navigate(`/users/me/scraps/outfit-posts/${outfitPostId}`);
   };
+
+  const isEmpty = pagesData[0].count === 0;
+  if (isEmpty) {
+    return <EmptyView />;
+  }
 
   return (
     <Grid>
