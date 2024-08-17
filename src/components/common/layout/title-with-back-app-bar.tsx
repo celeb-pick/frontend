@@ -13,7 +13,7 @@ function TitleWithBackAppBar({ title, navigateTo }: TitleWithBackAppBarProps) {
   const navigate = useNavigate();
 
   return (
-    <div className="custom-app-bar-container">
+    <div className="custom-app-bar-container" css={[tw`sticky top-0`]}>
       <IconButton
         icon={<ArrowBackIosNewRoundedIcon />}
         onClick={() => navigate(navigateTo)}

@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '../pages/home';
 import LoginPage from '../pages/login';
+import MyScrapPage from '../pages/my-scrap';
+import MyScrapOutfitPostPage from '../pages/my-scrap-outfit-post';
 import SignupPage from '../pages/signup';
 import RouteWrapper from './route-wrapper';
 
@@ -22,6 +24,14 @@ const router: RouterType = createBrowserRouter([
       {
         path: '/signup',
         element: <SignupPage />,
+      },
+      {
+        path: '/users/me/scraps',
+        element: <MyScrapPage />,
+      },
+      {
+        path: '/users/me/scraps/outfit-posts/:outfitPostId',
+        element: <MyScrapOutfitPostPage />,
       },
     ],
   },

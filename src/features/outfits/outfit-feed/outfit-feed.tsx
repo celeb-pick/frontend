@@ -4,8 +4,8 @@ import type {
 } from '@tanstack/react-query';
 import type { ComponentPropsWithoutRef } from 'react';
 import tw from 'twin.macro';
+import InfiniteScrollFetchTrigger from '../../../components/common/infinite-scroll-fetch-trigger';
 import type { OutfitPostListResponse } from '../../../types/outfit';
-import OutfitFeedFetchTrigger from './outfit-feed-fetch-trigger';
 import OutfitFeedPostLoader from './outfit-feed-post-loader';
 import OutfitPostList from './outfit-post-list';
 
@@ -34,7 +34,7 @@ function OutfitFeed({
     <div css={[tw`w-full h-full`]} {...props}>
       <OutfitPostList pagesData={data.pages} />
       <OutfitFeedPostLoader isFetching={isFetchingNextPage} />
-      <OutfitFeedFetchTrigger
+      <InfiniteScrollFetchTrigger
         hasNextPage={hasNextPage}
         fetchNextPage={fetchNextPage}
       />

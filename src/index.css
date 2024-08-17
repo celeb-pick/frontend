@@ -10,6 +10,6 @@
 
 @layer components {
   .custom-app-bar-container {
-    @apply h-16 border-b border-solid border-gray-100 bg-white px-4 flex-y-center;
+    @apply z-20 h-16 w-full border-b border-solid border-gray-100 bg-white px-4 flex-y-center;
   }
 }
