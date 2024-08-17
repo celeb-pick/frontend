@@ -25,8 +25,8 @@ const outlineStyle = (color: ChipProps['color']) => {
     return null;
   }
   return css`
-    color: ${tailwindColors[color]['400']};
-    border: solid 1px ${tailwindColors[color]['300']};
+    color: ${tailwindColors[color]['500']};
+    border: solid 1px ${tailwindColors[color]['400']};
   `;
 };
 
