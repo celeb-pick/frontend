@@ -6,7 +6,8 @@ export interface OutfitScrapButtonProps {
   outfitPostId?: number;
   outfitItemId?: number;
   isScrapped: boolean | null;
-  scrapCount: number;
+  scrapCount?: number;
+  className?: string;
 }
 
 function OutfitScrapButton(props: OutfitScrapButtonProps) {

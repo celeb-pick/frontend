@@ -31,6 +31,7 @@ function BaseOutfitScrapButton({
     typeof updatedScrapCount === 'undefined'
       ? context.scrapCount
       : updatedScrapCount;
+  const showScrapCount = typeof scrapCount !== 'undefined';
 
   const ScrapIcon = isScrapped
     ? BookmarkRoundedIcon
@@ -43,9 +44,10 @@ function BaseOutfitScrapButton({
       icon={
         <>
           <ScrapIcon css={[tw`mr-0.5`, isScrapped && tw`fill-yellow-300`]} />
-          <span css={[tw`font-medium`]}>{scrapCount}</span>
+          {showScrapCount && <span css={[tw`font-medium`]}>{scrapCount}</span>}
         </>
       }
+      className={context.className}
     />
   );
 }

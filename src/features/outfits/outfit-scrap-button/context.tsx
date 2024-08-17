@@ -4,7 +4,8 @@ export interface OutfitScrapButtonContextType {
   outfitPostId?: number;
   outfitItemId?: number;
   isScrapped: boolean | null;
-  scrapCount: number;
+  scrapCount?: number;
+  className?: string;
 }
 
 export const OutfitScrapButtonContext =

@@ -17,18 +17,28 @@ function OutfitItemScrapButton() {
   const scrapOutfitItem = useCallback(() => {
     mutateScrap(outfitItemId!);
     setUpdatedIsScrapped(true);
-    setUpdatedScrapCount(scrapCount + 1);
+    if (typeof scrapCount === 'number') {
+      setUpdatedScrapCount(scrapCount + 1);
+    }
   }, [mutateScrap, scrapCount, outfitItemId]);
 
   const unscrapOutfitItem = useCallback(() => {
     mutateUnscrap(outfitItemId!);
     setUpdatedIsScrapped(false);
-    setUpdatedScrapCount(scrapCount - 1);
+    if (typeof scrapCount === 'number') {
+      setUpdatedScrapCount(scrapCount - 1);
+    }
   }, [mutateUnscrap, scrapCount, outfitItemId]);
 
+  const handleClickButton = isScrapped ? unscrapOutfitItem : scrapOutfitItem;
+
   return (
+    // propagation 되는지 테스트해보기
     <BaseOutfitScrapButton
-      onClick={isScrapped ? unscrapOutfitItem : scrapOutfitItem}
+      onClick={(event) => {
+        event.stopPropagation();
+        handleClickButton();
+      }}
       updatedIsScrapped={updatedIsScrapped}
       updatedScrapCount={updatedScrapCount}
       disabled={isPendingScrap || isPendingUnscrap}
