@@ -1,6 +1,6 @@
 import tw from 'twin.macro';
 import Spinner from '../../../components/atoms/Spinner';
-import InfiniteScrollFetchTrigger from '../../../components/common/InfiniteScrollFetchTrigger';
+import InfiniteScrollFetchTrigger from '../../../components/utils/InfiniteScrollFetchTrigger';
 import useFetchMyScrapOutfitItemList from '../../../features/scraps/queries/useFetchMyScrapOutfitItemList';
 import OutfitItemListContent from './OutfitItemListContent';
 
