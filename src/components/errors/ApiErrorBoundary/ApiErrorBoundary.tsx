@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import { HttpStatusCode, isAxiosError } from 'axios';
 import { generateServerErrorMessage } from '../../../utils/error';
-import Layout from '../../common/Layout';
+import Layout from '../../templates/Layout';
 import ErrorSection from '../ErrorSection';
 
 interface ApiErrorBoundaryProps {

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import Layout from '../../components/common/Layout';
 import LocalApiErrorBoundary from '../../components/errors/LocalApiErrorBoundary';
+import Layout from '../../components/templates/Layout';
 import OutfitFeed from '../../features/outfits/components/OutfitFeed';
 import OutfitFeedSkeleton from '../../features/outfits/components/OutfitFeed/OutfitFeedSkeleton';
 import useFetchMyScrapOutfitPostList from '../../hooks/queries/useFetchMyScrapOutfitPostList';

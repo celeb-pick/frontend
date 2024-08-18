@@ -3,8 +3,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { useLocation } from 'react-router-dom';
 import tw from 'twin.macro';
-import Layout from '../../common/Layout';
-import LogoAppBar from '../../common/Layout/LayoutLogoAppBar';
+import Layout from '../../templates/Layout';
+import LogoAppBar from '../../templates/Layout/LayoutLogoAppBar';
 import ErrorSection from '../ErrorSection';
 
 interface RootErrorBoundaryProps {

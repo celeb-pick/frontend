@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import tw from 'twin.macro';
 import Button from '../../components/atoms/Button';
 import TextField from '../../components/atoms/TextField';
-import Layout from '../../components/common/Layout';
+import Layout from '../../components/templates/Layout';
 import useLogin from '../../hooks/mutations/useLogin';
 import { LoginErrorResponse } from '../../types/auth';
 import { getServerErrorResponse } from '../../utils/error';
