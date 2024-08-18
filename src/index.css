@@ -8,6 +8,12 @@
   --bottom-tab-bar-height: calc(70px + env(safe-area-inset-bottom));
 }
 
+@layer base {
+  body {
+    @apply overflow-y-scroll;
+  }
+}
+
 @layer components {
   .custom-app-bar-container {
     @apply z-20 h-16 w-full border-b border-solid border-gray-100 bg-white px-4 flex-y-center;
