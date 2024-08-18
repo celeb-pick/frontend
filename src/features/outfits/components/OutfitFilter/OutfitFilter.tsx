@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 import tw from 'twin.macro';
+import OutfitPostGenderSelect from '../OutfitPostGenderSelect';
 import CelebrityCategorySelect from './CelebrityCategorySelect';
-import OutfitPostGenderSelect from './OutfitPostGenderSelect';
 
 interface OutfitFilterProps extends ComponentPropsWithoutRef<'div'> {}
 
