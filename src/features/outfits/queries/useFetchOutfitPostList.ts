@@ -1,6 +1,6 @@
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
-import { fetchOutfitPosts } from '../../api/outfit';
-import { OutfitPostListRequest } from '../../types/outfit';
+import { fetchOutfitPosts } from '../../../api/outfit';
+import { OutfitPostListRequest } from '../../../types/outfit';
 
 const useFetchOutfitPostList = (req?: OutfitPostListRequest) => {
   return useSuspenseInfiniteQuery({

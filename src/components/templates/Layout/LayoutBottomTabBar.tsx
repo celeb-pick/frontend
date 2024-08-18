@@ -6,7 +6,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { ReactElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import tw from 'twin.macro';
-import useAuthStatus from '../../../hooks/useAuthStatus';
+import useAuthStatus from '../../../features/auths/hooks/useAuthStatus';
 
 interface TabNavigatorProps {
   icon: ReactElement;

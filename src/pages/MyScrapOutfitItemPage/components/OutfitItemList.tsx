@@ -1,7 +1,7 @@
 import tw from 'twin.macro';
 import Spinner from '../../../components/atoms/Spinner';
 import InfiniteScrollFetchTrigger from '../../../components/common/InfiniteScrollFetchTrigger';
-import useFetchMyScrapOutfitItemList from '../../../hooks/queries/useFetchMyScrapOutfitItemList';
+import useFetchMyScrapOutfitItemList from '../../../features/scraps/queries/useFetchMyScrapOutfitItemList';
 import OutfitItemListContent from './OutfitItemListContent';
 
 function OutfitItemList() {

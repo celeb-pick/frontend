@@ -3,7 +3,7 @@ import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import { MouseEventHandler } from 'react';
 import tw from 'twin.macro';
 import IconButton from '../../../../components/atoms/IconButton';
-import useAuthStatus from '../../../../hooks/useAuthStatus';
+import useAuthStatus from '../../../auths/hooks/useAuthStatus';
 import { useOutfitScrapButtonContext } from './useOutfitScrapButtonContext';
 
 interface BaseOutfitScrapButtonProps {

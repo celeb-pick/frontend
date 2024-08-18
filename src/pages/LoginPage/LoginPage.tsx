@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 import Button from '../../components/atoms/Button';
 import TextField from '../../components/atoms/TextField';
 import Layout from '../../components/templates/Layout';
-import useLogin from '../../hooks/mutations/useLogin';
+import useLogin from '../../features/auths/mutations/useLogin';
 import { LoginErrorResponse } from '../../types/auth';
 import { getServerErrorResponse } from '../../utils/error';
 import useLoginForm from './useLoginForm';

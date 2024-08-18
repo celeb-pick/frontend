@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import useScrapOutfitItem from '../../../../hooks/mutations/useScrapOutfitItem';
-import useUnscrapOutfitItem from '../../../../hooks/mutations/useUnscrapOutfitItem';
+import useScrapOutfitItem from '../../../scraps/mutations/useScrapOutfitItem';
+import useUnscrapOutfitItem from '../../../scraps/mutations/useUnscrapOutfitItem';
 import BaseOutfitScrapButton from './BaseOutfitScrapButton';
 import { useOutfitScrapButtonContext } from './useOutfitScrapButtonContext';
 

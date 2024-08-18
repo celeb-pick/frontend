@@ -3,7 +3,7 @@ import LocalApiErrorBoundary from '../../components/errors/LocalApiErrorBoundary
 import Layout from '../../components/templates/Layout';
 import OutfitFeed from '../../features/outfits/components/OutfitFeed';
 import OutfitFeedSkeleton from '../../features/outfits/components/OutfitFeed/OutfitFeedSkeleton';
-import useFetchMyScrapOutfitPostList from '../../hooks/queries/useFetchMyScrapOutfitPostList';
+import useFetchMyScrapOutfitPostList from '../../features/scraps/queries/useFetchMyScrapOutfitPostList';
 
 function MyScrapOutfitPostPage() {
   return (
