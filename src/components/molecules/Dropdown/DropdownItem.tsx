@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import tw from 'twin.macro';
-import useDropdownContext from './hooks';
 import type { DropdownValueType } from './types';
+import useDropdownContext from './useDropdownContext';
 
 interface DropdownItemProps
   extends Omit<ComponentPropsWithoutRef<'li'>, 'value'> {

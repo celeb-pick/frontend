@@ -1,5 +1,5 @@
 import { cloneElement, ReactElement } from 'react';
-import useDropdownContext from './hooks';
+import useDropdownContext from './useDropdownContext';
 
 type DropdownTriggerProps = {
   as: ReactElement;
