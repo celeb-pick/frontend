@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchAuthStatus } from '../../api/auth';
+import { fetchAuthStatus } from '../../../api/auth';
 
 const useFetchAuthStatus = () => {
   return useQuery({

@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import OutfitFeed from '../../../features/outfits/components/OutfitFeed';
-import useFetchOutfitPostList from '../../../hooks/queries/useFetchOutfitPostList';
+import useFetchOutfitPostList from '../../../features/outfits/queries/useFetchOutfitPostList';
 import { CelebrityCategory } from '../../../types/celebrity';
 import { OutfitPostGender, OutfitPostListRequest } from '../../../types/outfit';
 

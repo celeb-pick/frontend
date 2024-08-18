@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
-import MyScrapPage from '../pages/MyScrapPage';
 import MyScrapOutfitItemPage from '../pages/MyScrapOutfitItemPage';
 import MyScrapOutfitPostPage from '../pages/MyScrapOutfitPostPage';
+import MyScrapPage from '../pages/MyScrapPage';
 import SignupPage from '../pages/SignupPage';
-import RouteWrapper from './route-wrapper';
+import RouteWrapper from './RouteWrapper';
 
 type RouterType = ReturnType<typeof createBrowserRouter>;
 

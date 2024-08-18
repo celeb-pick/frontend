@@ -32,6 +32,9 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.51.23
         version: 5.51.23(@tanstack/react-query@5.51.23(react@18.3.1))(react@18.3.1)
+      '@types/lodash.isnil':
+        specifier: ^4.0.9
+        version: 4.0.9
       '@types/react-transition-group':
         specifier: ^4.4.10
         version: 4.4.10
@@ -41,6 +44,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      lodash.isnil:
+        specifier: ^4.0.0
+        version: 4.0.0
       lodash.omit:
         specifier: ^4.5.0
         version: 4.5.0
@@ -1749,6 +1755,9 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
+  '@types/lodash.isnil@4.0.9':
+    resolution: {integrity: sha512-NruIMLXRJL8sOm1RZkzFBfoMIkLZ7hCNWaAXzzHiBTxf4JvQowcaP1l4eTr02jGJqCSEags/bPFN3ypUKMpgFw==}
+
   '@types/lodash.omit@4.5.9':
     resolution: {integrity: sha512-zuAVFLUPJMOzsw6yawshsYGgq2hWUHtsZgeXHZmSFhaQQFC6EQ021uDKHkSjOpNhSvtNSU9165/o3o/Q51GpTw==}
 
@@ -3333,6 +3342,9 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+
+  lodash.isnil@4.0.0:
+    resolution: {integrity: sha512-up2Mzq3545mwVnMhTDMdfoG1OurpA/s5t88JmQX809eH3C8491iu2sfKhTfhQtKY78oPNhiaHJUpT/dUDAAtng==}
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -6596,6 +6608,10 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
+  '@types/lodash.isnil@4.0.9':
+    dependencies:
+      '@types/lodash': 4.17.7
+
   '@types/lodash.omit@4.5.9':
     dependencies:
       '@types/lodash': 4.17.7
@@ -8458,6 +8474,8 @@ snapshots:
   lodash.debounce@4.0.8: {}
 
   lodash.get@4.4.2: {}
+
+  lodash.isnil@4.0.0: {}
 
   lodash.merge@4.6.2: {}
 

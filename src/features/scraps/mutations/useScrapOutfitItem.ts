@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { HttpStatusCode } from 'axios';
-import { scrapOutfitItem } from '../../api/scrap';
-import { getServerErrorResponse } from '../../utils/error';
+import { scrapOutfitItem } from '../../../api/scrap';
+import { getServerErrorResponse } from '../../../utils/error';
 
 const useScrapOutfitItem = () => {
   const queryClient = useQueryClient();

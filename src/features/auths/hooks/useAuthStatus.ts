@@ -1,4 +1,4 @@
-import useFetchAuthStatus from './queries/useFetchAuthStatus';
+import useFetchAuthStatus from '../queries/useFetchAuthStatus';
 
 const useAuthStatus = () => {
   const { data } = useFetchAuthStatus();

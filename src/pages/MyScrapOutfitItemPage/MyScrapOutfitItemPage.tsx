@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import Layout from '../../components/common/Layout';
 import LocalApiErrorBoundary from '../../components/errors/LocalApiErrorBoundary';
+import Layout from '../../components/templates/Layout';
 import OutfitItemList from './components/OutfitItemList';
 import OutfitItemListSkeleton from './components/OutfitItemListSkeleton';
 

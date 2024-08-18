@@ -4,7 +4,7 @@ import type {
 } from '@tanstack/react-query';
 import type { ComponentPropsWithoutRef } from 'react';
 import tw from 'twin.macro';
-import InfiniteScrollFetchTrigger from '../../../../components/common/InfiniteScrollFetchTrigger';
+import InfiniteScrollFetchTrigger from '../../../../components/utils/InfiniteScrollFetchTrigger';
 import type { OutfitPostListResponse } from '../../../../types/outfit';
 import OutfitFeedPostLoader from './OutfitFeedPostLoader';
 import OutfitPostList from './OutfitPostList';

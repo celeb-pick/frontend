@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { HttpStatusCode } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../../api/auth';
-import { SignupRequest } from '../../types/auth';
-import { getServerErrorResponse } from '../../utils/error';
+import { signup } from '../../../api/auth';
+import { SignupRequest } from '../../../types/auth';
+import { getServerErrorResponse } from '../../../utils/error';
 
 const useSignup = () => {
   const queryClient = useQueryClient();

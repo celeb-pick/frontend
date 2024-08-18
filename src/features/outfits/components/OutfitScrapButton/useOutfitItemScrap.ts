@@ -1,16 +1,24 @@
 import { useCallback, useState } from 'react';
-import useScrapOutfitItem from '../../../../hooks/mutations/useScrapOutfitItem';
-import useUnscrapOutfitItem from '../../../../hooks/mutations/useUnscrapOutfitItem';
-import BaseOutfitScrapButton from './BaseOutfitScrapButton';
-import { useOutfitScrapButtonContext } from './useOutfitScrapButtonContext';
+import useScrapOutfitItem from '../../../scraps/mutations/useScrapOutfitItem';
+import useUnscrapOutfitItem from '../../../scraps/mutations/useUnscrapOutfitItem';
+import { UseOutfitScrapReturnType } from './types';
 
-function OutfitItemScrapButton() {
-  const { isScrapped, scrapCount, outfitItemId } =
-    useOutfitScrapButtonContext();
+interface UseOutfitItemScrapParams {
+  outfitItemId?: number;
+  isScrapped: boolean | null;
+  scrapCount?: number;
+}
+
+const useOutfitItemScrap = ({
+  isScrapped,
+  scrapCount,
+  outfitItemId,
+}: UseOutfitItemScrapParams): UseOutfitScrapReturnType => {
   const { mutate: mutateScrap, isPending: isPendingScrap } =
     useScrapOutfitItem();
   const { mutate: mutateUnscrap, isPending: isPendingUnscrap } =
     useUnscrapOutfitItem();
+
   const [updatedIsScrapped, setUpdatedIsScrapped] = useState<boolean>();
   const [updatedScrapCount, setUpdatedScrapCount] = useState<number>();
 
@@ -30,20 +38,10 @@ function OutfitItemScrapButton() {
     }
   }, [mutateUnscrap, scrapCount, outfitItemId]);
 
-  const handleClickButton = isScrapped ? unscrapOutfitItem : scrapOutfitItem;
+  const toggleScrap = isScrapped ? unscrapOutfitItem : scrapOutfitItem;
+  const isPending = isPendingScrap || isPendingUnscrap;
 
-  return (
-    // propagation 되는지 테스트해보기
-    <BaseOutfitScrapButton
-      onClick={(event) => {
-        event.stopPropagation();
-        handleClickButton();
-      }}
-      updatedIsScrapped={updatedIsScrapped}
-      updatedScrapCount={updatedScrapCount}
-      disabled={isPendingScrap || isPendingUnscrap}
-    />
-  );
-}
+  return { updatedIsScrapped, updatedScrapCount, toggleScrap, isPending };
+};
 
-export default OutfitItemScrapButton;
+export default useOutfitItemScrap;

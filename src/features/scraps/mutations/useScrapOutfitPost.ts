@@ -1,15 +1,15 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { HttpStatusCode } from 'axios';
-import { unscrapOutfitPost } from '../../api/scrap';
-import { getServerErrorResponse } from '../../utils/error';
+import { scrapOutfitPost } from '../../../api/scrap';
+import { getServerErrorResponse } from '../../../utils/error';
 
-const useUnscrapOutfitPost = () => {
+const useScrapOutfitPost = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (outfitPostId: number) => unscrapOutfitPost(outfitPostId),
+    mutationFn: (outfitPostId: number) => scrapOutfitPost(outfitPostId),
     throwOnError: (error) => {
-      if (getServerErrorResponse(error)?.status === HttpStatusCode.BadRequest) {
+      if (getServerErrorResponse(error)?.status === HttpStatusCode.Conflict) {
         return false;
       }
       return true;
@@ -23,4 +23,4 @@ const useUnscrapOutfitPost = () => {
   });
 };
 
-export default useUnscrapOutfitPost;
+export default useScrapOutfitPost;

@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import tw from 'twin.macro';
-import useDropdownContext from './hooks';
+import useDropdownContext from './useDropdownContext';
 
 interface DropdownMenuProps extends ComponentPropsWithoutRef<'ul'> {
   children: ReactNode;

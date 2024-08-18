@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import Layout from '../../components/common/Layout';
 import LocalApiErrorBoundary from '../../components/errors/LocalApiErrorBoundary';
+import Layout from '../../components/templates/Layout';
 import MyScrapGridSkeleton from './components/MyScrapGridSkeleton';
 import MyScrapOutfitItemGrid from './components/MyScrapOutfitItemGrid';
 import MyScrapOutfitPostGrid from './components/MyScrapOutfitPostGrid';

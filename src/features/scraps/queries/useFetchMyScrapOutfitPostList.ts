@@ -1,6 +1,6 @@
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
-import { fetchMyScrapOutfitPosts } from '../../api/scrap';
-import { MyScrapOutfitPostListRequest } from '../../types/scrap';
+import { fetchMyScrapOutfitPosts } from '../../../api/scrap';
+import { MyScrapOutfitPostListRequest } from '../../../types/scrap';
 
 const useFetchMyScrapOutfitPostList = (req?: MyScrapOutfitPostListRequest) => {
   return useSuspenseInfiniteQuery({

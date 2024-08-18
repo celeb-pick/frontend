@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 import Spinner from '../../../components/atoms/Spinner';
-import InfiniteScrollFetchTrigger from '../../../components/common/InfiniteScrollFetchTrigger';
 import Grid from '../../../components/templates/Grid';
+import InfiniteScrollFetchTrigger from '../../../components/utils/InfiniteScrollFetchTrigger';
 import OutfitScrapButton from '../../../features/outfits/components/OutfitScrapButton';
-import useFetchMyScrapOutfitItemList from '../../../hooks/queries/useFetchMyScrapOutfitItemList';
+import useFetchMyScrapOutfitItemList from '../../../features/scraps/queries/useFetchMyScrapOutfitItemList';
 import { MyScrapOutfitItemListResponse } from '../../../types/scrap';
 
 interface GridContentProps {

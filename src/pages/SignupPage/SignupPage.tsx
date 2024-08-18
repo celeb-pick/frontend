@@ -1,4 +1,4 @@
-import Layout from '../../components/common/Layout';
+import Layout from '../../components/templates/Layout';
 import SignupForm from './components/SignupForm';
 
 function SignupPage() {
