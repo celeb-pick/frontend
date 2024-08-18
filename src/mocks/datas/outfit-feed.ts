@@ -3,7 +3,7 @@ import item1Image from '../../assets/storybook/outfit-feed/item-1.jpg';
 import item2Image from '../../assets/storybook/outfit-feed/item-2.webp';
 import post1Image from '../../assets/storybook/outfit-feed/post-1.png';
 import post2Image from '../../assets/storybook/outfit-feed/post-2.png';
-import OutfitFeed from '../../features/outfits/outfit-feed';
+import OutfitFeed from '../../features/outfits/components/OutfitFeed';
 
 const mockOutfitFeed = {
   pageParams: [],
