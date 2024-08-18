@@ -1,16 +1,24 @@
 import { useCallback, useState } from 'react';
 import useScrapOutfitPost from '../../../scraps/mutations/useScrapOutfitPost';
 import useUnscrapOutfitPost from '../../../scraps/mutations/useUnscrapOutfitPost';
-import BaseOutfitScrapButton from './BaseOutfitScrapButton';
-import { useOutfitScrapButtonContext } from './useOutfitScrapButtonContext';
+import { UseOutfitScrapReturnType } from './types';
 
-function OutfitPostScrapButton() {
-  const { isScrapped, scrapCount, outfitPostId } =
-    useOutfitScrapButtonContext();
+interface UseOutfitPostScrapParams {
+  outfitPostId?: number;
+  isScrapped: boolean | null;
+  scrapCount?: number;
+}
+
+const useOutfitPostScrap = ({
+  isScrapped,
+  scrapCount,
+  outfitPostId,
+}: UseOutfitPostScrapParams): UseOutfitScrapReturnType => {
   const { mutate: mutateScrap, isPending: isPendingScrap } =
     useScrapOutfitPost();
   const { mutate: mutateUnscrap, isPending: isPendingUnscrap } =
     useUnscrapOutfitPost();
+
   const [updatedIsScrapped, setUpdatedIsScrapped] = useState<boolean>();
   const [updatedScrapCount, setUpdatedScrapCount] = useState<number>();
 
@@ -30,19 +38,10 @@ function OutfitPostScrapButton() {
     }
   }, [mutateUnscrap, scrapCount, outfitPostId]);
 
-  const handleClickButton = isScrapped ? unscrapOutfitPost : scrapOutfitPost;
+  const toggleScrap = isScrapped ? unscrapOutfitPost : scrapOutfitPost;
+  const isPending = isPendingScrap || isPendingUnscrap;
 
-  return (
-    <BaseOutfitScrapButton
-      onClick={(event) => {
-        event.stopPropagation();
-        handleClickButton();
-      }}
-      updatedIsScrapped={updatedIsScrapped}
-      updatedScrapCount={updatedScrapCount}
-      disabled={isPendingScrap || isPendingUnscrap}
-    />
-  );
-}
+  return { updatedIsScrapped, updatedScrapCount, toggleScrap, isPending };
+};
 
-export default OutfitPostScrapButton;
+export default useOutfitPostScrap;
