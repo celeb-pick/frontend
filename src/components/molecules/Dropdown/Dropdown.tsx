@@ -7,7 +7,7 @@ import {
 } from 'react';
 import tw from 'twin.macro';
 import useClickOutside from '../../../hooks/useClickOutside';
-import { DropdownProvider } from './context';
+import { DropdownProvider } from './DropdownProvider';
 import type { DropdownValueType } from './types';
 
 export interface DropdownProps extends ComponentPropsWithoutRef<'div'> {
