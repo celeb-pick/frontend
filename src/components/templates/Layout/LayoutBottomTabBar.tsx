@@ -37,7 +37,7 @@ function LayoutBottomTabBar() {
   return (
     <div
       css={[
-        tw`z-20 sticky bottom-0 flex-y-center justify-around w-full  pb-[env(safe-area-inset-bottom)]`,
+        tw`z-20 sticky bottom-0 flex-y-center justify-around w-full mt-auto pb-[env(safe-area-inset-bottom)]`,
         tw`bg-white border-t border-solid border-gray-100`,
       ]}
     >
