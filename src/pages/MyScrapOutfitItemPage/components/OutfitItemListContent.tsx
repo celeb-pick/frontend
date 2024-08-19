@@ -37,7 +37,9 @@ function OutfitItemListRow({ outfitItem }: OutfitItemListRowProps) {
     <li
       ref={outfitItemRef}
       key={outfitItem.id}
-      css={[tw`flex-y-center flex-wrap gap-x-2.5 p-3 border-solid border-b `]}
+      css={[
+        tw`flex-y-center flex-wrap gap-x-2.5 p-3 border-solid border-b scroll-mt-[--app-bar-height]`,
+      ]}
     >
       <div css={[tw`relative`]}>
         <img

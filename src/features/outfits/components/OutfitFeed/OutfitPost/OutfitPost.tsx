@@ -23,7 +23,11 @@ function OutfitPost({ outfitPost, ...props }: OutfitPostProps) {
   }, [outfitPostIdParam, outfitPostRef, outfitPost]);
 
   return (
-    <div ref={outfitPostRef} css={[tw`flex flex-col`]} {...props}>
+    <div
+      ref={outfitPostRef}
+      css={[tw`flex flex-col scroll-mt-[--app-bar-height]`]}
+      {...props}
+    >
       <OutfitPostHeader creator={outfitPost.creator} />
       <OutfitPostSlider outfitPost={outfitPost} />
     </div>
