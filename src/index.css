@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --layout-max-width: 600px;
-  --layout-min-width: 350px;
-  --bottom-tab-bar-height: calc(70px + env(safe-area-inset-bottom));
-}
-
 @layer base {
   body {
     @apply overflow-y-scroll;

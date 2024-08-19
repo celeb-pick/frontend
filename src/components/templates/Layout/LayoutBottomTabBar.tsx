@@ -31,36 +31,31 @@ function TabNavigator({ icon, label, to }: TabNavigatorProps) {
   );
 }
 
-const containerStyle = tw`
-  z-20 fixed bottom-0 max-w-[calc(var(--layout-max-width) - 4px)] min-w-[--layout-min-width]
-  w-full h-[--bottom-tab-bar-height] pb-[env(safe-area-inset-bottom)] bg-white border-t border-solid border-gray-100
-`;
-
 function LayoutBottomTabBar() {
   const { isAuthenticated } = useAuthStatus();
 
   return (
-    <>
-      {/* fixed로 차지한 LayoutBottomTabBar의 빈 공간을 채우는 div */}
-      <div css={[tw`h-[--bottom-tab-bar-height]`]} />
-
-      <div css={[containerStyle, tw`flex-y-center justify-around`]}>
-        <TabNavigator icon={<HomeOutlinedIcon />} label="홈" to="/" />
-        <TabNavigator icon={<SearchRoundedIcon />} label="검색" to="" />
-        <TabNavigator icon={<AddBoxOutlinedIcon />} label="코디 추가" to="" />
-        <TabNavigator
-          icon={<BookmarkBorderOutlinedIcon />}
-          label="스크랩"
-          to="/users/me/scraps"
-        />
-        <TabNavigator
-          icon={<PersonOutlineOutlinedIcon />}
-          label="마이"
-          // TODO: 로그인시 '/users/me' 내 프로필 페이지로 라우팅
-          to={isAuthenticated ? '' : '/login'}
-        />
-      </div>
-    </>
+    <div
+      css={[
+        tw`z-20 sticky bottom-0 flex-y-center justify-around w-full  pb-[env(safe-area-inset-bottom)]`,
+        tw`bg-white border-t border-solid border-gray-100`,
+      ]}
+    >
+      <TabNavigator icon={<HomeOutlinedIcon />} label="홈" to="/" />
+      <TabNavigator icon={<SearchRoundedIcon />} label="검색" to="" />
+      <TabNavigator icon={<AddBoxOutlinedIcon />} label="코디 추가" to="" />
+      <TabNavigator
+        icon={<BookmarkBorderOutlinedIcon />}
+        label="스크랩"
+        to="/users/me/scraps"
+      />
+      <TabNavigator
+        icon={<PersonOutlineOutlinedIcon />}
+        label="마이"
+        // TODO: 로그인시 '/users/me' 내 프로필 페이지로 라우팅
+        to={isAuthenticated ? '' : '/login'}
+      />
+    </div>
   );
 }
 
