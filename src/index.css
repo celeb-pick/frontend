@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --layout-max-width: 600px;
-  --layout-min-width: 350px;
-}
-
 @layer base {
   body {
     @apply overflow-y-scroll;
