@@ -19,7 +19,7 @@ const mockOutfitFeed = {
           title: '장원영 사복 패션',
           createdAt: '2024-08-07T02:00:16.690393+09:00',
           gender: '여성',
-          imageUrl: post1Image,
+          image: post1Image,
           scrapCount: 0,
           isScrapped: null,
           celebrity: {
@@ -52,7 +52,7 @@ const mockOutfitFeed = {
           title: '피오 봄 코디',
           createdAt: '2024-07-29T14:05:12.561135+09:00',
           gender: '남성',
-          imageUrl: post2Image,
+          image: post2Image,
           scrapCount: 0,
           isScrapped: null,
           celebrity: {

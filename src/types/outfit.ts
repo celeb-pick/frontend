@@ -17,7 +17,7 @@ export type OutfitPostListResponse = PaginationResponse<{
   title: string;
   createdAt: string;
   gender: OutfitPostGender;
-  imageUrl: string;
+  image: string;
   scrapCount: number;
   isScrapped: boolean | null;
   celebrity: {
