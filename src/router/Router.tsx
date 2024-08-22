@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import CreateOutfitPostPage from '../pages/CreateOutfitPostPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import MyScrapOutfitItemPage from '../pages/MyScrapOutfitItemPage';
@@ -37,6 +38,10 @@ const router: RouterType = createBrowserRouter([
       {
         path: '/users/me/scraps/outfit-items/:outfitItemId',
         element: <MyScrapOutfitItemPage />,
+      },
+      {
+        path: '/outfit-posts/new',
+        element: <CreateOutfitPostPage />,
       },
     ],
   },

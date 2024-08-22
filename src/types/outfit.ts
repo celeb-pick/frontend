@@ -51,3 +51,13 @@ export type OutfitItemCategory =
   | '가방'
   | '악세사리'
   | '기타';
+
+export interface CreateOutfitPostRequest {
+  payload: {
+    celebrityId: number;
+    gender: OutfitPostGender;
+    title: string;
+    image: File;
+    itemIds: number[];
+  };
+}
