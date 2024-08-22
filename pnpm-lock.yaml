@@ -80,6 +80,9 @@ importers:
       swiper:
         specifier: ^11.1.9
         version: 11.1.9
+      use-debounce:
+        specifier: ^10.0.3
+        version: 10.0.3(react@18.3.1)
       use-query-params:
         specifier: ^2.2.1
         version: 2.2.1(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -4572,6 +4575,12 @@ packages:
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+
+  use-debounce@10.0.3:
+    resolution: {integrity: sha512-DxQSI9ZKso689WM1mjgGU3ozcxU1TJElBJ3X6S4SMzMNcm2lVH0AHmyXB+K7ewjz2BSUKJTDqTcwtSMRfB89dg==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      react: '*'
 
   use-query-params@2.2.1:
     resolution: {integrity: sha512-i6alcyLB8w9i3ZK3caNftdb+UnbfBRNPDnc89CNQWkGRmDrm/gfydHvMBfVsQJRq3NoHOM2dt/ceBWG2397v1Q==}
@@ -9746,6 +9755,10 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+
+  use-debounce@10.0.3(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   use-query-params@2.2.1(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.26.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
