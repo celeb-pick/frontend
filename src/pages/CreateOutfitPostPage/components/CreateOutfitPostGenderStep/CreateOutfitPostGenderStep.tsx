@@ -5,11 +5,19 @@ import CreateOutfitPostProgress from '../CreateOutfitPostProgress';
 import CreateOutfitPostTitle from '../CreateOutfitPostTitle';
 import OutfitPostGenderRadioGroup from './OutfitPostGenderRadioGroup';
 
-function CreateOutfitPostGenderStep() {
-  const { Funnel, setStep, gender } = useCreateOutfitPostPageContext();
+interface CreateOutfitPostGenderStepProps {
+  onClickPrevious: () => void;
+  onClickNext: () => void;
+}
+
+function CreateOutfitPostGenderStep({
+  onClickPrevious,
+  onClickNext,
+}: CreateOutfitPostGenderStepProps) {
+  const { gender } = useCreateOutfitPostPageContext();
 
   return (
-    <Funnel.Step name="gender">
+    <>
       <CreateOutfitPostProgress stepNumber={2} />
       <CreateOutfitPostTitle>
         코디에 맞는 성별을
@@ -20,18 +28,14 @@ function CreateOutfitPostGenderStep() {
         onChange={gender.onChange}
       />
       <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
-        <Button fullWidth color="gray" onClick={() => setStep('celebrity')}>
+        <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>
-        <Button
-          fullWidth
-          disabled={!gender.value}
-          onClick={() => setStep('outfitPostImage')}
-        >
+        <Button fullWidth disabled={!gender.value} onClick={onClickNext}>
           다음으로
         </Button>
       </div>
-    </Funnel.Step>
+    </>
   );
 }
 
