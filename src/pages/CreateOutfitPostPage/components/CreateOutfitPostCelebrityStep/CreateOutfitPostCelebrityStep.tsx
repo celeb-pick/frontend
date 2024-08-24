@@ -9,12 +9,18 @@ import CelebrityList from './CelebrityList';
 import CelebrityListSkeleton from './CelebrityListSkeleton';
 import CelebritySearchBar from './CelebritySearchBar';
 
-function CreateOutfitPostCelebrityStep() {
-  const { Funnel, setStep, celebrityId } = useCreateOutfitPostPageContext();
+interface CreateOutfitPostCelebrityStepProps {
+  onClickNext: () => void;
+}
+
+function CreateOutfitPostCelebrityStep({
+  onClickNext,
+}: CreateOutfitPostCelebrityStepProps) {
+  const { celebrityId } = useCreateOutfitPostPageContext();
   const [search, setSearch] = useState<string>();
 
   return (
-    <Funnel.Step name="celebrity">
+    <>
       <CreateOutfitPostProgress stepNumber={1} />
       <CreateOutfitPostTitle>
         코디에 맞는 셀럽을
@@ -27,15 +33,11 @@ function CreateOutfitPostCelebrityStep() {
         </Suspense>
       </LocalApiErrorBoundary>
       <div css={[tw`sticky w-full mt-auto pt-8`]}>
-        <Button
-          fullWidth
-          disabled={!celebrityId.value}
-          onClick={() => setStep('gender')}
-        >
+        <Button fullWidth disabled={!celebrityId.value} onClick={onClickNext}>
           다음으로
         </Button>
       </div>
-    </Funnel.Step>
+    </>
   );
 }
 

@@ -10,8 +10,17 @@ function CreateOutfitPostFunnel() {
   return (
     <div css={[tw`flex flex-col items-center flex-1 p-4 pb-6`]}>
       <Funnel>
-        <CreateOutfitPostCelebrityStep />
-        <CreateOutfitPostGenderStep />
+        <Funnel.Step name="celebrity">
+          <CreateOutfitPostCelebrityStep
+            onClickNext={() => setStep('gender')}
+          />
+        </Funnel.Step>
+        <Funnel.Step name="gender">
+          <CreateOutfitPostGenderStep
+            onClickPrevious={() => setStep('celebrity')}
+            onClickNext={() => setStep('title')}
+          />
+        </Funnel.Step>
         <Funnel.Step name="title">
           <CreateOutfitPostTitleStep
             onClickPrevious={() => setStep('gender')}
