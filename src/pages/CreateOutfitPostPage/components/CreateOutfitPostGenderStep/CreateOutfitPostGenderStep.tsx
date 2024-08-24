@@ -26,7 +26,7 @@ function CreateOutfitPostGenderStep() {
         <Button
           fullWidth
           disabled={!gender.value}
-          onClick={() => setStep('outfitPostImage')}
+          onClick={() => setStep('title')}
         >
           다음으로
         </Button>
