@@ -24,7 +24,7 @@ function OutfitPostSlider({ outfitPost, ...props }: OutfitPostSliderProps) {
       >
         <SwiperSlide>
           <OutfitPostSliderImage
-            src={outfitPost.imageUrl}
+            src={outfitPost.image}
             alt={outfitPost.title}
           />
           <OutfitPostSliderInfo
