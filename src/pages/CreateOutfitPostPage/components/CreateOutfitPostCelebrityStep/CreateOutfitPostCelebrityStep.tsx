@@ -15,22 +15,22 @@ function CreateOutfitPostCelebrityStep() {
 
   return (
     <Funnel.Step name="celebrity">
-      <div css={[tw`flex flex-col items-center px-4`]}>
-        <CreateOutfitPostProgress stepNumber={1} />
-        <CreateOutfitPostTitle>
-          코디에 맞는 셀럽을
-          <br /> 선택해 주세요.
-        </CreateOutfitPostTitle>
-        <CelebritySearchBar search={search} setSearch={setSearch} />
-        <LocalApiErrorBoundary>
-          <Suspense fallback={<CelebrityListSkeleton />}>
-            <CelebrityList search={search} />
-          </Suspense>
-        </LocalApiErrorBoundary>
+      <CreateOutfitPostProgress stepNumber={1} />
+      <CreateOutfitPostTitle>
+        코디에 맞는 셀럽을
+        <br /> 선택해 주세요.
+      </CreateOutfitPostTitle>
+      <CelebritySearchBar search={search} setSearch={setSearch} />
+      <LocalApiErrorBoundary>
+        <Suspense fallback={<CelebrityListSkeleton />}>
+          <CelebrityList search={search} />
+        </Suspense>
+      </LocalApiErrorBoundary>
+      <div css={[tw`sticky w-full mt-auto pt-8`]}>
         <Button
+          fullWidth
           disabled={!celebrityId.value}
           onClick={() => setStep('gender')}
-          css={[tw`mt-20 w-1/2`]}
         >
           다음으로
         </Button>

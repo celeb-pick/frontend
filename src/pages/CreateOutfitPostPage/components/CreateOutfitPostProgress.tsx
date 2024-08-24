@@ -32,7 +32,7 @@ function CreateOutfitPostProgress({
   stepNumber,
 }: CreateOutfitPostProgressProps) {
   return (
-    <div css={[tw`relative flex-y-center w-full pt-4 text-gray-300`]}>
+    <div css={[tw`relative flex-y-center w-full text-gray-300`]}>
       <ProgressIcon stepNumber={stepNumber} level={1} />
       <ProgressLine stepNumber={stepNumber} level={1} />
 
