@@ -13,7 +13,7 @@ const schema = z.object({
     .string()
     .min(1, { message: '코디 제목을 입력해 주세요.' })
     .min(4, { message: '코디 제목은 4자 이상이어야 합니다.' })
-    .max(12, { message: '코디 제목은 20자 이하여야 합니다.' }),
+    .max(20, { message: '코디 제목은 20자 이하여야 합니다.' }),
   image: fileSchema({
     requiredMessage: '코디 이미지를 업로드해 주세요.',
   }),
