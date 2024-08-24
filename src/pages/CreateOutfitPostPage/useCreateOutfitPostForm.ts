@@ -27,6 +27,7 @@ const useCreateOutfitPostForm = () => {
   const {
     control,
     handleSubmit,
+    trigger,
     resetField,
     formState: { errors },
   } = useForm<CreateOutfitPostRequest['payload']>({
@@ -63,6 +64,7 @@ const useCreateOutfitPostForm = () => {
 
   return {
     handleSubmit,
+    trigger,
     resetField,
     errors,
     celebrityId,
