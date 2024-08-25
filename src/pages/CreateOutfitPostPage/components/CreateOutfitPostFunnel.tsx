@@ -2,6 +2,7 @@ import tw from 'twin.macro';
 import useCreateOutfitPostFunnel from '../useCreateOutfitPostFunnel';
 import CreateOutfitPostCelebrityStep from './CreateOutfitPostCelebrityStep';
 import CreateOutfitPostGenderStep from './CreateOutfitPostGenderStep';
+import CreateOutfitPostImageStep from './CreateOutfitPostImageStep';
 import CreateOutfitPostTitleStep from './CreateOutfitPostTitleStep';
 
 function CreateOutfitPostFunnel() {
@@ -25,6 +26,12 @@ function CreateOutfitPostFunnel() {
           <CreateOutfitPostTitleStep
             onClickPrevious={() => setStep('gender')}
             onClickNext={() => setStep('outfitPostImage')}
+          />
+        </Funnel.Step>
+        <Funnel.Step name="outfitPostImage">
+          <CreateOutfitPostImageStep
+            onClickPrevious={() => setStep('title')}
+            onClickNext={() => setStep('outfitItems')}
           />
         </Funnel.Step>
       </Funnel>
