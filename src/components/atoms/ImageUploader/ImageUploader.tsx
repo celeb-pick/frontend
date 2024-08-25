@@ -14,13 +14,13 @@ import ImageUploaderCropper from './ImageUploaderCropper';
 
 interface ImageUploaderProps extends ComponentPropsWithoutRef<'label'> {
   image: File | undefined;
-  onChange: () => void;
+  setImage: (image: File) => void;
   size?: number;
 }
 
 function ImageUploader({
   image,
-  onChange,
+  setImage,
   size = 320,
   ...props
 }: ImageUploaderProps) {
@@ -89,7 +89,7 @@ function ImageUploader({
       {showCropper && (
         <ImageUploaderCropper
           originalImageUrl={originalImageUrl}
-          setCroppedImage={onChange}
+          setCroppedImage={setImage}
           setCroppedImageUrl={setCroppedImageUrl}
           setShowCropper={setShowCropper}
         />

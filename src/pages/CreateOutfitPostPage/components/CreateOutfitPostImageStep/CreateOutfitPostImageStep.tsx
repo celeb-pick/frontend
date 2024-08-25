@@ -28,7 +28,7 @@ function CreateOutfitPostImageStep({
     <>
       <CreateOutfitPostProgress stepNumber={4} />
       <CreateOutfitPostTitle>코디 사진을 선택해 주세요.</CreateOutfitPostTitle>
-      <ImageUploader image={image.value} onChange={image.onChange} />
+      <ImageUploader image={image.value} setImage={image.onChange} />
       {errors.image && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.image.message}</p>
       )}

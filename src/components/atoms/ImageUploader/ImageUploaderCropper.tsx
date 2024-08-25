@@ -11,7 +11,7 @@ import getCroppedImg from './helpers';
 interface ImageUploaderCropperProps {
   originalImageUrl: string | undefined;
   setCroppedImageUrl: Dispatch<SetStateAction<string | undefined>>;
-  setCroppedImage: Dispatch<SetStateAction<File | undefined>>;
+  setCroppedImage: (image: File) => void;
   setShowCropper: Dispatch<SetStateAction<boolean>>;
 }
 
