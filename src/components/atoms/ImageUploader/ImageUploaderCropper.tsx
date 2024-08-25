@@ -1,5 +1,4 @@
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Cropper, { Area, Point } from 'react-easy-crop';
@@ -58,13 +57,9 @@ function ImageUploaderCropper({
       />
       <div
         css={[
-          tw`absolute bottom-0 left-0 flex-y-center justify-between gap-4 w-full p-2 bg-white`,
+          tw`absolute bottom-0 left-0 flex-y-center justify-between gap-2 w-full p-2 pl-4 bg-white`,
         ]}
       >
-        <IconButton
-          icon={<CloseRoundedIcon />}
-          onClick={() => setShowCropper(false)}
-        />
         <input
           type="range"
           value={zoom}
