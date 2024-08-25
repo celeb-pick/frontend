@@ -14,10 +14,20 @@ import ImageUploaderCropper from './ImageUploaderCropper';
 
 interface ImageUploaderProps extends ComponentPropsWithoutRef<'label'> {
   image: File | undefined;
+
   setImage: (image: File) => void;
+
+  /**
+   * 업로더의 크기를 나타내는 단위 입니다.
+   * 'px' 단위로 값이 적용 됩니다.
+   */
   size?: number;
 }
 
+/**
+ * 이미지를 업로드하고 미리보기 이미지를 확인할 수 있습니다.
+ * 이미지를 업로드 하면 크롭 기능을 통해 이미지를 정방형으로 자를 수 있습니다.
+ */
 function ImageUploader({
   image,
   setImage,
