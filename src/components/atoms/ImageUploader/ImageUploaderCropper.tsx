@@ -1,6 +1,6 @@
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Cropper, { Area, Point } from 'react-easy-crop';
 import tw from 'twin.macro';
@@ -10,9 +10,9 @@ import getCroppedImg from './helpers';
 
 interface ImageUploaderCropperProps {
   originalImageUrl: string | undefined;
-  setCroppedImageUrl: Dispatch<SetStateAction<string | undefined>>;
+  setCroppedImageUrl: (url: string) => void;
   setCroppedImage: (image: File) => void;
-  setShowCropper: Dispatch<SetStateAction<boolean>>;
+  setShowCropper: (isShow: boolean) => void;
 }
 
 function ImageUploaderCropper({
