@@ -47,7 +47,7 @@ function ImageUploader({
   }, [image, croppedImageUrl]);
 
   return (
-    <>
+    <div css={[tw`flex flex-col items-center`]}>
       <label
         htmlFor={fileInputId}
         css={[
@@ -94,7 +94,7 @@ function ImageUploader({
           setShowCropper={setShowCropper}
         />
       )}
-    </>
+    </div>
   );
 }
 
