@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  ComponentPropsWithoutRef,
-  useEffect,
-  useId,
-  useState,
-} from 'react';
+import { ChangeEvent, ComponentPropsWithoutRef, useId, useState } from 'react';
 
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import FullscreenRoundedIcon from '@mui/icons-material/FullscreenRounded';
@@ -13,9 +7,25 @@ import Button from '../Button';
 import ImageUploaderCropper from './ImageUploaderCropper';
 
 interface ImageUploaderProps extends ComponentPropsWithoutRef<'label'> {
+  /**
+   * 크롭된 이미지 파일 입니다.
+   */
   image: File | undefined;
-
   setImage: (image: File) => void;
+
+  /**
+   * 크롭시 필요한 원본 이미지의 미리보기 URL 입니다.
+   * 상태 유지가 필요한 경우를 위해 prop으로 상태를 관리하고 있습니다.
+   */
+  originalImageUrl: string | undefined;
+  setOriginalImageUrl: (url: string) => void;
+
+  /**
+   * 크롭된 이미지의 미리보기 URL 입니다.
+   * 상태 유지가 필요한 경우를 위해 prop으로 상태를 관리하고 있습니다.
+   */
+  croppedImageUrl: string | undefined;
+  setCroppedImageUrl: (url: string) => void;
 
   /**
    * 업로더의 크기를 나타내는 단위 입니다.
@@ -31,13 +41,14 @@ interface ImageUploaderProps extends ComponentPropsWithoutRef<'label'> {
 function ImageUploader({
   image,
   setImage,
+  originalImageUrl,
+  setOriginalImageUrl,
+  croppedImageUrl,
+  setCroppedImageUrl,
   size = 320,
   ...props
 }: ImageUploaderProps) {
   const fileInputId = useId();
-
-  const [originalImageUrl, setOriginalImageUrl] = useState<string>();
-  const [croppedImageUrl, setCroppedImageUrl] = useState<string>();
   const [showCropper, setShowCropper] = useState(false);
 
   const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,13 +59,6 @@ function ImageUploader({
     setOriginalImageUrl(URL.createObjectURL(fileList[0]));
     setShowCropper(true);
   };
-
-  useEffect(() => {
-    if (!image || !!croppedImageUrl) {
-      return;
-    }
-    setCroppedImageUrl(URL.createObjectURL(image));
-  }, [image, croppedImageUrl]);
 
   return (
     <div css={[tw`flex flex-col items-center`]}>

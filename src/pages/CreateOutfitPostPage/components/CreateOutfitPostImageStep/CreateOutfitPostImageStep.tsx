@@ -14,7 +14,15 @@ function CreateOutfitPostImageStep({
   onClickPrevious,
   onClickNext,
 }: CreateOutfitPostImageStepProps) {
-  const { image, trigger, errors } = useCreateOutfitPostPageContext();
+  const {
+    image,
+    trigger,
+    errors,
+    originalImageUrl,
+    setOriginalImageUrl,
+    croppedImageUrl,
+    setCroppedImageUrl,
+  } = useCreateOutfitPostPageContext();
 
   const handleClickNextButton = async () => {
     const isValid = await trigger('image');
@@ -28,7 +36,14 @@ function CreateOutfitPostImageStep({
     <>
       <CreateOutfitPostProgress stepNumber={4} />
       <CreateOutfitPostTitle>코디 사진을 선택해 주세요.</CreateOutfitPostTitle>
-      <ImageUploader image={image.value} setImage={image.onChange} />
+      <ImageUploader
+        image={image.value}
+        setImage={image.onChange}
+        originalImageUrl={originalImageUrl}
+        setOriginalImageUrl={setOriginalImageUrl}
+        croppedImageUrl={croppedImageUrl}
+        setCroppedImageUrl={setCroppedImageUrl}
+      />
       {errors.image && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.image.message}</p>
       )}
