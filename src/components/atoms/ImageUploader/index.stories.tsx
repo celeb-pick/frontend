@@ -13,7 +13,7 @@ const meta = {
         },
       },
     },
-  }
+  },
 } satisfies Meta<typeof ImageUploader>;
 
 export default meta;
