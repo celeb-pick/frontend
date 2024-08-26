@@ -1,6 +1,7 @@
 import tw from 'twin.macro';
 import Button from '../../../../components/atoms/Button';
 import ImageUploader from '../../../../components/atoms/ImageUploader';
+import { ALLOWED_EXTENSIONS } from '../../../../constants/file';
 import useCreateOutfitPostPageContext from '../../useCreateOutfitPostPageContext';
 import CreateOutfitPostProgress from '../CreateOutfitPostProgress';
 import CreateOutfitPostTitle from '../CreateOutfitPostTitle';
@@ -43,6 +44,7 @@ function CreateOutfitPostImageStep({
         setOriginalImageUrl={setOriginalImageUrl}
         croppedImageUrl={croppedImageUrl}
         setCroppedImageUrl={setCroppedImageUrl}
+        accept={ALLOWED_EXTENSIONS.map((ext) => `.${ext}`).join(', ')}
       />
       {errors.image && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.image.message}</p>

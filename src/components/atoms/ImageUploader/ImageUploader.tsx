@@ -32,6 +32,11 @@ interface ImageUploaderProps extends ComponentPropsWithoutRef<'label'> {
    * 'px' 단위로 값이 적용 됩니다.
    */
   size?: number;
+
+  /**
+   * 업로드 가능한 확장자를 제한할 수 있습니다.
+   */
+  accept?: string;
 }
 
 /**
@@ -46,6 +51,7 @@ function ImageUploader({
   croppedImageUrl,
   setCroppedImageUrl,
   size = 320,
+  accept,
   ...props
 }: ImageUploaderProps) {
   const fileInputId = useId();
@@ -74,6 +80,7 @@ function ImageUploader({
           id={fileInputId}
           type="file"
           onChange={handleChangeFile}
+          accept={accept}
           css={[tw`hidden`]}
         />
         {croppedImageUrl ? (
