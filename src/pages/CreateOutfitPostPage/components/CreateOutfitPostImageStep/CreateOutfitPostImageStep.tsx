@@ -47,7 +47,7 @@ function CreateOutfitPostImageStep({
       {errors.image && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.image.message}</p>
       )}
-      <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
+      <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>

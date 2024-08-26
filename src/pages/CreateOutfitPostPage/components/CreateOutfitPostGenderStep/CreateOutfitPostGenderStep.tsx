@@ -27,7 +27,7 @@ function CreateOutfitPostGenderStep({
         value={gender.value}
         onChange={gender.onChange}
       />
-      <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
+      <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>

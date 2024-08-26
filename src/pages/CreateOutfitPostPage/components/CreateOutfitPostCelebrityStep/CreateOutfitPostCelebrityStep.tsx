@@ -32,11 +32,14 @@ function CreateOutfitPostCelebrityStep({
           <CelebrityList search={search} />
         </Suspense>
       </LocalApiErrorBoundary>
-      <div css={[tw`sticky w-full mt-auto pt-8`]}>
-        <Button fullWidth disabled={!celebrityId.value} onClick={onClickNext}>
-          다음으로
-        </Button>
-      </div>
+      <Button
+        fullWidth
+        disabled={!celebrityId.value}
+        onClick={onClickNext}
+        css={[tw`mt-24 mb-16`]}
+      >
+        다음으로
+      </Button>
     </>
   );
 }
