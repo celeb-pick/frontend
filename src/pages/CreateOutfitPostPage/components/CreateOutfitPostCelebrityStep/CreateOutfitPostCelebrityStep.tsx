@@ -21,7 +21,7 @@ function CreateOutfitPostCelebrityStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={1} />
+      <CreateOutfitPostProgress currentStep={1} />
       <CreateOutfitPostTitle>
         코디에 맞는 셀럽을
         <br /> 선택해 주세요.

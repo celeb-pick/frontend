@@ -38,7 +38,7 @@ function CreateOutfitPostItemStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={5} />
+      <CreateOutfitPostProgress currentStep={5} />
       <CreateOutfitPostTitle>
         코디 아이템을&nbsp;
         <span css={[tw`text-indigo-700`]}>5개 내로&nbsp;</span>

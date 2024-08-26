@@ -18,7 +18,7 @@ function CreateOutfitPostGenderStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={2} />
+      <CreateOutfitPostProgress currentStep={2} />
       <CreateOutfitPostTitle>
         코디에 맞는 성별을
         <br /> 선택해 주세요.

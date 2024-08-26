@@ -34,7 +34,7 @@ function CreateOutfitPostImageStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={4} />
+      <CreateOutfitPostProgress currentStep={4} />
       <CreateOutfitPostTitle>코디 사진을 선택해 주세요.</CreateOutfitPostTitle>
       <ImageUploader
         image={image.value}

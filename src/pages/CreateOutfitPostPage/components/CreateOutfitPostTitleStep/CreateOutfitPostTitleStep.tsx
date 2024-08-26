@@ -26,7 +26,7 @@ function CreateOutfitPostTitleStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={3} />
+      <CreateOutfitPostProgress currentStep={3} />
       <CreateOutfitPostTitle>코디 제목을 입력해 주세요.</CreateOutfitPostTitle>
       <TextField
         value={title.value}
