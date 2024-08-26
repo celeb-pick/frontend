@@ -13,7 +13,7 @@ function ProgressLine({
     <div
       css={[
         tw`w-full h-1 px-5 bg-gray-300`,
-        currentStep > step + 1 && tw`bg-indigo-500`,
+        currentStep > step && tw`bg-indigo-500`,
       ]}
     />
   );
