@@ -1,0 +1,1 @@
+export const OUTFIT_ITEM_MAX_SELECT_COUNT = 5;

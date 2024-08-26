@@ -3,6 +3,7 @@ import { useController, useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
 import { fileSchema } from '../../schemas/file';
 import { CreateOutfitPostRequest } from '../../types/outfit';
+import { OUTFIT_ITEM_MAX_SELECT_COUNT } from './constants';
 
 const schema = z.object({
   celebrityId: z.number({ message: '코디에 맞는 셀럽을 선택해 주세요.' }),
@@ -20,7 +21,9 @@ const schema = z.object({
   itemIds: z
     .array(z.number())
     .nonempty({ message: '코디 아이템을 선택해 주세요.' })
-    .max(5, { message: '코디 아이템은 5개 이하여야 합니다.' }),
+    .max(OUTFIT_ITEM_MAX_SELECT_COUNT, {
+      message: `코디 아이템은 ${OUTFIT_ITEM_MAX_SELECT_COUNT}개 이하여야 합니다.`,
+    }),
 }) satisfies ZodType<CreateOutfitPostRequest['payload']>;
 
 const useCreateOutfitPostForm = () => {
