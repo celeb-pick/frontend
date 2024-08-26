@@ -16,7 +16,7 @@ interface CreateOutfitPostCelebrityStepProps {
 function CreateOutfitPostCelebrityStep({
   onClickNext,
 }: CreateOutfitPostCelebrityStepProps) {
-  const { celebrityId } = useCreateOutfitPostPageContext();
+  const { celebrityId, errors } = useCreateOutfitPostPageContext();
   const [search, setSearch] = useState<string>();
 
   return (
@@ -32,6 +32,9 @@ function CreateOutfitPostCelebrityStep({
           <CelebrityList search={search} />
         </Suspense>
       </LocalApiErrorBoundary>
+      {errors.celebrityId && (
+        <p css={[tw`text-red-500 mt-2`]}>{errors.celebrityId.message}</p>
+      )}
       <Button
         fullWidth
         disabled={!celebrityId.value}

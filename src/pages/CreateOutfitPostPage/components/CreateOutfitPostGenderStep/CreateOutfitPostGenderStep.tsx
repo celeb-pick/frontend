@@ -14,7 +14,7 @@ function CreateOutfitPostGenderStep({
   onClickPrevious,
   onClickNext,
 }: CreateOutfitPostGenderStepProps) {
-  const { gender } = useCreateOutfitPostPageContext();
+  const { gender, errors } = useCreateOutfitPostPageContext();
 
   return (
     <>
@@ -27,6 +27,9 @@ function CreateOutfitPostGenderStep({
         value={gender.value}
         onChange={gender.onChange}
       />
+      {errors.gender && (
+        <p css={[tw`text-red-500 mt-2`]}>{errors.gender.message}</p>
+      )}
       <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
