@@ -6,6 +6,7 @@ import MyScrapOutfitItemPage from '../pages/MyScrapOutfitItemPage';
 import MyScrapOutfitPostPage from '../pages/MyScrapOutfitPostPage';
 import MyScrapPage from '../pages/MyScrapPage';
 import SignupPage from '../pages/SignupPage';
+import ProtectedRoute from './ProtectedRoute';
 import RouteWrapper from './RouteWrapper';
 
 type RouterType = ReturnType<typeof createBrowserRouter>;
@@ -21,27 +22,51 @@ const router: RouterType = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <LoginPage />,
+        element: (
+          <ProtectedRoute permission="anonymous">
+            <LoginPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/signup',
-        element: <SignupPage />,
+        element: (
+          <ProtectedRoute permission="anonymous">
+            <SignupPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/users/me/scraps',
-        element: <MyScrapPage />,
+        element: (
+          <ProtectedRoute permission="user">
+            <MyScrapPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/users/me/scraps/outfit-posts/:outfitPostId',
-        element: <MyScrapOutfitPostPage />,
+        element: (
+          <ProtectedRoute permission="user">
+            <MyScrapOutfitPostPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/users/me/scraps/outfit-items/:outfitItemId',
-        element: <MyScrapOutfitItemPage />,
+        element: (
+          <ProtectedRoute permission="user">
+            <MyScrapOutfitItemPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/outfit-posts/new',
-        element: <CreateOutfitPostPage />,
+        element: (
+          <ProtectedRoute permission="user">
+            <CreateOutfitPostPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

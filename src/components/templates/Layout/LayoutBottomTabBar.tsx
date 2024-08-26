@@ -46,12 +46,12 @@ function LayoutBottomTabBar() {
       <TabNavigator
         icon={<AddBoxOutlinedIcon />}
         label="코디 추가"
-        to="/outfit-posts/new"
+        to={isAuthenticated ? '/outfit-posts/new' : '/login'}
       />
       <TabNavigator
         icon={<BookmarkBorderOutlinedIcon />}
         label="스크랩"
-        to="/users/me/scraps"
+        to={isAuthenticated ? '/users/me/scraps' : '/login'}
       />
       <TabNavigator
         icon={<PersonOutlineOutlinedIcon />}
