@@ -5,7 +5,7 @@ import { isEmptyArray } from '../../../utils/array';
 
 type InputProps = ComponentPropsWithRef<'input'>;
 
-export interface TextFieldProps {
+export interface TextFieldProps extends InputProps {
   /**
    * 컴포넌트의 value값 입니다.
    */
@@ -69,6 +69,7 @@ const TextField = forwardRef(function TextField(
     hasError = false,
     errorMessages = [],
     className,
+    ...restProps
   } = props;
   const inputId = useId();
 
@@ -102,6 +103,7 @@ const TextField = forwardRef(function TextField(
             tw`w-full px-2.5 pt-6 pb-1 outline-0`,
             { borderRadius: 'inherit' },
           ]}
+          {...restProps}
         />
       </label>
       {error && (

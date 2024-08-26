@@ -14,11 +14,11 @@ function CreateOutfitPostGenderStep({
   onClickPrevious,
   onClickNext,
 }: CreateOutfitPostGenderStepProps) {
-  const { gender } = useCreateOutfitPostPageContext();
+  const { gender, errors } = useCreateOutfitPostPageContext();
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={2} />
+      <CreateOutfitPostProgress currentStep={2} />
       <CreateOutfitPostTitle>
         코디에 맞는 성별을
         <br /> 선택해 주세요.
@@ -27,7 +27,10 @@ function CreateOutfitPostGenderStep({
         value={gender.value}
         onChange={gender.onChange}
       />
-      <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
+      {errors.gender && (
+        <p css={[tw`text-red-500 mt-2`]}>{errors.gender.message}</p>
+      )}
+      <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>

@@ -26,18 +26,20 @@ function CreateOutfitPostTitleStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={3} />
+      <CreateOutfitPostProgress currentStep={3} />
       <CreateOutfitPostTitle>코디 제목을 입력해 주세요.</CreateOutfitPostTitle>
       <TextField
         value={title.value}
         onChange={title.onChange}
         label="코디 제목"
+        minLength={4}
+        maxLength={20}
         css={[tw`max-w-[360px]`]}
       />
       {errors.title && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.title.message}</p>
       )}
-      <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
+      <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>

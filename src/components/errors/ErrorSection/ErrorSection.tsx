@@ -32,7 +32,10 @@ function ErrorSection({
   className,
 }: ErrorSectionProps) {
   return (
-    <div css={[tw`flex-center flex-col flex-1 h-full`]} className={className}>
+    <div
+      css={[tw`flex-center flex-col flex-1 w-full h-full`]}
+      className={className}
+    >
       <ErrorOutlineRoundedIcon fontSize="large" css={[tw`text-red-500 mb-4`]} />
       <h1 css={[tw`text-xl font-semibold`]}>{title}</h1>
       {!!subTittle && (

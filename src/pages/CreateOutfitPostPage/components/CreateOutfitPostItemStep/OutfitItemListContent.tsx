@@ -2,6 +2,7 @@ import { ChangeEvent, useId } from 'react';
 import tw from 'twin.macro';
 import Chip from '../../../../components/atoms/Chip';
 import { OutfitItemListResponse } from '../../../../types/outfit';
+import { OUTFIT_ITEM_MAX_SELECT_COUNT } from '../../constants';
 import useCreateOutfitPostPageContext from '../../useCreateOutfitPostPageContext';
 
 interface OutfitItemListContentProps {
@@ -28,6 +29,8 @@ function OutfitItemListRow({
   const outfitItemId = useId();
   const { itemIds } = useCreateOutfitPostPageContext();
   const isSelected = itemIds.value.includes(outfitItem.id);
+  const disabled =
+    !isSelected && itemIds.value.length >= OUTFIT_ITEM_MAX_SELECT_COUNT;
 
   const handleChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
@@ -43,8 +46,9 @@ function OutfitItemListRow({
     <label
       htmlFor={outfitItemId}
       css={[
-        tw`flex-y-center flex-wrap gap-x-2.5 p-3 border-solid border-b cursor-pointer`,
+        tw`flex-y-center flex-wrap gap-x-2.5 p-3 border-solid border-b`,
         isSelected && tw`bg-indigo-50`,
+        !disabled && tw`cursor-pointer`,
       ]}
     >
       <input
@@ -54,6 +58,7 @@ function OutfitItemListRow({
         value={outfitItem.id}
         onChange={handleChangeValue}
         checked={isSelected}
+        disabled={disabled}
       />
       <img
         src={outfitItem.imageUrl}

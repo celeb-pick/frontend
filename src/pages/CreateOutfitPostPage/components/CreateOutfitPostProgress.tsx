@@ -2,50 +2,50 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import tw from 'twin.macro';
 
 interface CreateOutfitPostProgressProps {
-  stepNumber: number;
+  currentStep: number;
 }
 
 function ProgressLine({
-  level,
-  stepNumber,
-}: CreateOutfitPostProgressProps & { level: number }) {
+  step,
+  currentStep,
+}: CreateOutfitPostProgressProps & { step: number }) {
   return (
     <div
       css={[
         tw`w-full h-1 px-5 bg-gray-300`,
-        stepNumber - 1 > level && tw`bg-indigo-500`,
+        currentStep > step && tw`bg-indigo-500`,
       ]}
     />
   );
 }
 
 function ProgressIcon({
-  level,
-  stepNumber,
-}: CreateOutfitPostProgressProps & { level: number }) {
+  step,
+  currentStep,
+}: CreateOutfitPostProgressProps & { step: number }) {
   return (
-    <CheckCircleRoundedIcon css={[stepNumber > level && tw`text-indigo-500`]} />
+    <CheckCircleRoundedIcon css={[currentStep > step && tw`text-indigo-500`]} />
   );
 }
 
 function CreateOutfitPostProgress({
-  stepNumber,
+  currentStep,
 }: CreateOutfitPostProgressProps) {
   return (
     <div css={[tw`relative flex-y-center w-full text-gray-300`]}>
-      <ProgressIcon stepNumber={stepNumber} level={1} />
-      <ProgressLine stepNumber={stepNumber} level={1} />
+      <ProgressIcon currentStep={currentStep} step={1} />
+      <ProgressLine currentStep={currentStep} step={1} />
 
-      <ProgressIcon stepNumber={stepNumber} level={2} />
-      <ProgressLine stepNumber={stepNumber} level={2} />
+      <ProgressIcon currentStep={currentStep} step={2} />
+      <ProgressLine currentStep={currentStep} step={2} />
 
-      <ProgressIcon stepNumber={stepNumber} level={3} />
-      <ProgressLine stepNumber={stepNumber} level={3} />
+      <ProgressIcon currentStep={currentStep} step={3} />
+      <ProgressLine currentStep={currentStep} step={3} />
 
-      <ProgressIcon stepNumber={stepNumber} level={4} />
-      <ProgressLine stepNumber={stepNumber} level={4} />
+      <ProgressIcon currentStep={currentStep} step={4} />
+      <ProgressLine currentStep={currentStep} step={4} />
 
-      <ProgressIcon stepNumber={stepNumber} level={5} />
+      <ProgressIcon currentStep={currentStep} step={5} />
     </div>
   );
 }

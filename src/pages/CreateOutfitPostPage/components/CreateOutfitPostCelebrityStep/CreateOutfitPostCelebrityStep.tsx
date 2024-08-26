@@ -16,12 +16,12 @@ interface CreateOutfitPostCelebrityStepProps {
 function CreateOutfitPostCelebrityStep({
   onClickNext,
 }: CreateOutfitPostCelebrityStepProps) {
-  const { celebrityId } = useCreateOutfitPostPageContext();
+  const { celebrityId, errors } = useCreateOutfitPostPageContext();
   const [search, setSearch] = useState<string>();
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={1} />
+      <CreateOutfitPostProgress currentStep={1} />
       <CreateOutfitPostTitle>
         코디에 맞는 셀럽을
         <br /> 선택해 주세요.
@@ -32,11 +32,17 @@ function CreateOutfitPostCelebrityStep({
           <CelebrityList search={search} />
         </Suspense>
       </LocalApiErrorBoundary>
-      <div css={[tw`sticky w-full mt-auto pt-8`]}>
-        <Button fullWidth disabled={!celebrityId.value} onClick={onClickNext}>
-          다음으로
-        </Button>
-      </div>
+      {errors.celebrityId && (
+        <p css={[tw`text-red-500 mt-2`]}>{errors.celebrityId.message}</p>
+      )}
+      <Button
+        fullWidth
+        disabled={!celebrityId.value}
+        onClick={onClickNext}
+        css={[tw`mt-24 mb-16`]}
+      >
+        다음으로
+      </Button>
     </>
   );
 }

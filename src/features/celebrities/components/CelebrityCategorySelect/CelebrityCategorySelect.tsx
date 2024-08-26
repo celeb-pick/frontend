@@ -26,7 +26,7 @@ function CelebrityCategorySelect() {
       onChangeValue={setQuery}
       options={options}
       placeholder="분류"
-      css={[tw`min-w-[100px]`]}
+      css={[tw`min-w-[104px] w-[104px]`]}
     />
   );
 }

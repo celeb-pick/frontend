@@ -38,7 +38,7 @@ function CreateOutfitPostItemStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={5} />
+      <CreateOutfitPostProgress currentStep={5} />
       <CreateOutfitPostTitle>
         코디 아이템을&nbsp;
         <span css={[tw`text-indigo-700`]}>5개 내로&nbsp;</span>
@@ -53,7 +53,7 @@ function CreateOutfitPostItemStep({
       {errors.itemIds && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.itemIds.message}</p>
       )}
-      <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
+      <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>

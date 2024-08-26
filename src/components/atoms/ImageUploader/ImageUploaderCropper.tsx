@@ -45,7 +45,7 @@ function ImageUploaderCropper({
   };
 
   return createPortal(
-    <div css={[tw`z-50 absolute top-0 left-0 w-full h-full`]}>
+    <div css={[tw`z-50 fixed top-0 left-0 w-full h-full`]}>
       <Cropper
         image={originalImageUrl}
         crop={crop}
@@ -57,7 +57,7 @@ function ImageUploaderCropper({
       />
       <div
         css={[
-          tw`absolute bottom-0 left-0 flex-y-center justify-between gap-2 w-full p-2 pl-4 bg-white`,
+          tw`fixed bottom-0 left-0 flex-y-center justify-between gap-2 w-full p-2 pl-10 bg-white select-none touch-none`,
         ]}
       >
         <input

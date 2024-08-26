@@ -1,6 +1,7 @@
 import tw from 'twin.macro';
 import Button from '../../../../components/atoms/Button';
 import ImageUploader from '../../../../components/atoms/ImageUploader';
+import { ALLOWED_EXTENSIONS } from '../../../../constants/file';
 import useCreateOutfitPostPageContext from '../../useCreateOutfitPostPageContext';
 import CreateOutfitPostProgress from '../CreateOutfitPostProgress';
 import CreateOutfitPostTitle from '../CreateOutfitPostTitle';
@@ -34,7 +35,7 @@ function CreateOutfitPostImageStep({
 
   return (
     <>
-      <CreateOutfitPostProgress stepNumber={4} />
+      <CreateOutfitPostProgress currentStep={4} />
       <CreateOutfitPostTitle>코디 사진을 선택해 주세요.</CreateOutfitPostTitle>
       <ImageUploader
         image={image.value}
@@ -43,11 +44,12 @@ function CreateOutfitPostImageStep({
         setOriginalImageUrl={setOriginalImageUrl}
         croppedImageUrl={croppedImageUrl}
         setCroppedImageUrl={setCroppedImageUrl}
+        accept={ALLOWED_EXTENSIONS.map((ext) => `.${ext}`).join(', ')}
       />
       {errors.image && (
         <p css={[tw`text-red-500 mt-2`]}>{errors.image.message}</p>
       )}
-      <div css={[tw`sticky bottom-0 flex gap-x-6 w-full mt-auto`]}>
+      <div css={[tw`flex gap-x-6 w-full mt-24 mb-16`]}>
         <Button fullWidth color="gray" onClick={onClickPrevious}>
           이전으로
         </Button>
