@@ -43,15 +43,6 @@ export type OutfitPostListResponse = PaginationResponse<{
   }[];
 }>;
 
-export type OutfitItemCategory =
-  | '상의'
-  | '하의'
-  | '아우터'
-  | '신발'
-  | '가방'
-  | '악세사리'
-  | '기타';
-
 export interface CreateOutfitPostRequest {
   payload: {
     celebrityId: number;
@@ -61,3 +52,12 @@ export interface CreateOutfitPostRequest {
     itemIds: number[];
   };
 }
+
+export type OutfitItemCategory =
+  | '상의'
+  | '하의'
+  | '아우터'
+  | '신발'
+  | '가방'
+  | '악세사리'
+  | '기타';
