@@ -23,7 +23,6 @@ function CelebrityListContentItem({
 
   return (
     <label
-      key={celebrity.id}
       htmlFor={CelebrityItemId}
       css={[
         tw`relative flex-y-center flex-col gap-y-2 cursor-pointer rounded font-medium`,
@@ -42,7 +41,7 @@ function CelebrityListContentItem({
         type="radio"
         name={celebrityRadioGroupId}
         value={celebrity.id}
-        onChange={onChange}
+        onChange={(event) => onChange(Number(event.target.value))}
         checked={isSelected}
         id={CelebrityItemId}
         css={[tw`hidden`]}

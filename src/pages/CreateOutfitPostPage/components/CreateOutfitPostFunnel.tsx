@@ -4,6 +4,7 @@ import CreateOutfitPostCelebrityStep from './CreateOutfitPostCelebrityStep';
 import CreateOutfitPostGenderStep from './CreateOutfitPostGenderStep';
 import CreateOutfitPostImageStep from './CreateOutfitPostImageStep';
 import CreateOutfitPostTitleStep from './CreateOutfitPostTitleStep';
+import CreateOutfitPostItemStep from './CreateOutfitPostItemStep/CreateOutfitPostItemStep';
 
 function CreateOutfitPostFunnel() {
   const { Funnel, setStep } = useCreateOutfitPostFunnel();
@@ -32,6 +33,11 @@ function CreateOutfitPostFunnel() {
           <CreateOutfitPostImageStep
             onClickPrevious={() => setStep('title')}
             onClickNext={() => setStep('outfitItems')}
+          />
+        </Funnel.Step>
+        <Funnel.Step name="outfitItems">
+          <CreateOutfitPostItemStep
+            onClickPrevious={() => setStep('outfitPostImage')}
           />
         </Funnel.Step>
       </Funnel>
