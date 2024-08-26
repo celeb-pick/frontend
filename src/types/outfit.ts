@@ -1,4 +1,8 @@
-import type { PaginationQueryParams, PaginationResponse } from './api';
+import type {
+  ApiErrorMessagesResponse,
+  PaginationQueryParams,
+  PaginationResponse,
+} from './api';
 import { CelebrityCategory } from './celebrity';
 
 export type OutfitPostGender = '남성' | '여성' | '공용';
@@ -52,6 +56,10 @@ export interface CreateOutfitPostRequest {
     itemIds: number[];
   };
 }
+
+export type CreateOutfitPostErrorResponse = ApiErrorMessagesResponse<
+  CreateOutfitPostRequest['payload']
+>;
 
 export type OutfitItemCategory =
   | '상의'

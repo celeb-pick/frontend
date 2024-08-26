@@ -1,7 +1,9 @@
 import { Suspense, useState } from 'react';
+import { toast } from 'react-toastify';
 import tw from 'twin.macro';
 import Button from '../../../../components/atoms/Button';
 import ApiErrorBoundary from '../../../../components/errors/ApiErrorBoundary';
+import useCreateOutfitPost from '../../../../features/outfits/mutations/useCreateOutfitPost';
 import { isEmptyArray } from '../../../../utils/array';
 import useCreateOutfitPostPageContext from '../../useCreateOutfitPostPageContext';
 import CreateOutfitPostProgress from '../CreateOutfitPostProgress';
@@ -17,10 +19,22 @@ interface CreateOutfitPostItemStepProps {
 function CreateOutfitPostItemStep({
   onClickPrevious,
 }: CreateOutfitPostItemStepProps) {
-  const { itemIds, errors } = useCreateOutfitPostPageContext();
+  const { itemIds, errors, handleSubmit } = useCreateOutfitPostPageContext();
   const [search, setSearch] = useState<string>();
+  const { mutate, isPending } = useCreateOutfitPost();
 
-  const handleClickCreateButton = () => {};
+  const handleClickCreateButton = () => {
+    handleSubmit(
+      (payload) => {
+        mutate({ payload });
+      },
+      (fieldErrors) => {
+        if (!fieldErrors.itemIds) {
+          toast.warning('다른 스텝의 입력값을 확인해 주세요.');
+        }
+      }
+    )();
+  };
 
   return (
     <>
@@ -47,6 +61,7 @@ function CreateOutfitPostItemStep({
           fullWidth
           disabled={isEmptyArray(itemIds.value)}
           onClick={handleClickCreateButton}
+          isLoading={isPending}
         >
           코디 생성
         </Button>

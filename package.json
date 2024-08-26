@@ -39,6 +39,7 @@
     "react-hook-form": "^7.52.2",
     "react-intersection-observer": "^9.13.0",
     "react-router-dom": "^6.26.0",
+    "react-toastify": "^10.0.5",
     "react-transition-group": "^4.4.5",
     "storybook-addon-react-router-v6": "^2.0.15",
     "swiper": "^11.1.9",
