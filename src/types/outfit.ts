@@ -61,3 +61,24 @@ export type OutfitItemCategory =
   | '가방'
   | '악세사리'
   | '기타';
+
+export interface OutfitItemListRequest {
+  queryParams: {
+    itemCategory?: OutfitItemCategory;
+    search?: string;
+  } & PaginationQueryParams;
+}
+
+export type OutfitItemListResponse = PaginationResponse<{
+  id: number;
+  category: OutfitItemCategory;
+  name: string;
+  purchaseLink?: string;
+  imageUrl: string;
+  scrapCount: number;
+  isScrapped: boolean | null;
+  brand: {
+    id: number;
+    name: string;
+  };
+}>;
