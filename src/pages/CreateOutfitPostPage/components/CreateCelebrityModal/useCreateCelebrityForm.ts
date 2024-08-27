@@ -27,6 +27,7 @@ const schema = z.object({
 const useCreateCelebrityForm = () => {
   const {
     control,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm<CreateCelebrityPayloadType>({ resolver: zodResolver(schema) });
@@ -49,6 +50,7 @@ const useCreateCelebrityForm = () => {
 
   return {
     handleSubmit,
+    reset,
     errors,
     name,
     category,
