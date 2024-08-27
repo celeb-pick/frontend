@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuthStatus from '../features/auths/hooks/useAuthStatus';
+import useFetchAuthStatus from '../features/auths/queries/useFetchAuthStatus';
 
 interface ProtectedRouteProps {
   permission: 'user' | 'anonymous';
@@ -9,17 +9,19 @@ interface ProtectedRouteProps {
 
 function ProtectedRoute({ permission, children }: ProtectedRouteProps) {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuthStatus();
-
+  const { data, isSuccess } = useFetchAuthStatus();
   useEffect(() => {
-    if (permission === 'user' && !isAuthenticated) {
+    if (!isSuccess) {
+      return;
+    }
+    if (permission === 'user' && !data.isAuthenticated) {
       navigate('/login');
       return;
     }
-    if (permission === 'anonymous' && isAuthenticated) {
+    if (permission === 'anonymous' && data.isAuthenticated) {
       navigate('/');
     }
-  }, [navigate, permission, isAuthenticated]);
+  }, [navigate, isSuccess, permission, data]);
 
   return children;
 }
