@@ -1,17 +1,24 @@
 import tw from 'twin.macro';
-import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import Select from '../../../../components/molecules/Select';
 import { SelectOptionsType } from '../../../../components/molecules/Select/types';
 import { CelebrityCategory } from '../../../../types/celebrity';
 
-function CelebrityCategorySelect() {
-  const [query, setQuery] = useQueryParam(
-    'celebrityCategory',
-    withDefault(StringParam, null)
-  );
+interface CelebrityCategorySelectProps {
+  value: string | null | undefined;
+  onChange: (value: string | null | undefined) => void;
+  required?: boolean;
+  placeholder?: string;
+  className?: string;
+}
 
+function CelebrityCategorySelect({
+  value,
+  onChange,
+  required,
+  placeholder = '분류',
+  className,
+}: CelebrityCategorySelectProps) {
   const options: SelectOptionsType<CelebrityCategory> = [
-    { value: null, label: '전체' },
     { value: '아이돌' },
     { value: '가수' },
     { value: '배우' },
@@ -20,13 +27,18 @@ function CelebrityCategorySelect() {
     { value: '기타' },
   ];
 
+  if (!required) {
+    options.unshift({ value: null, label: '전체' });
+  }
+
   return (
     <Select
-      value={query}
-      onChangeValue={setQuery}
+      value={value}
+      onChangeValue={onChange}
       options={options}
-      placeholder="분류"
+      placeholder={placeholder}
       css={[tw`min-w-[104px] w-[104px]`]}
+      className={className}
     />
   );
 }

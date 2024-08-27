@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import tw from 'twin.macro';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import CelebrityCategorySelect from '../../../celebrities/components/CelebrityCategorySelect';
 import OutfitPostGenderSelect from '../OutfitPostGenderSelect';
 
@@ -10,6 +11,11 @@ interface OutfitFilterProps extends ComponentPropsWithoutRef<'div'> {}
  * `OutfitFeed` 컴포넌트와 같이 사용될 수 있습니다.
  */
 function OutfitFilter({ ...props }: OutfitFilterProps) {
+  const [category, setCategory] = useQueryParam(
+    'celebrityCategory',
+    withDefault(StringParam, null)
+  );
+
   return (
     <div
       css={[
@@ -18,7 +24,7 @@ function OutfitFilter({ ...props }: OutfitFilterProps) {
       {...props}
     >
       <OutfitPostGenderSelect />
-      <CelebrityCategorySelect />
+      <CelebrityCategorySelect value={category} onChange={setCategory} />
     </div>
   );
 }
