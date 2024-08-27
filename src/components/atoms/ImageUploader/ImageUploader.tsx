@@ -1,8 +1,16 @@
-import { ChangeEvent, ComponentPropsWithoutRef, useId, useState } from 'react';
+import {
+  ChangeEvent,
+  ComponentPropsWithoutRef,
+  ReactNode,
+  useId,
+  useState,
+} from 'react';
 
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import FullscreenRoundedIcon from '@mui/icons-material/FullscreenRounded';
+import { CropperProps } from 'react-easy-crop';
 import tw from 'twin.macro';
+import { ALLOWED_EXTENSIONS } from '../../../constants/file';
 import Button from '../Button';
 import ImageUploaderCropper from './ImageUploaderCropper';
 
@@ -37,6 +45,19 @@ interface ImageUploaderProps extends ComponentPropsWithoutRef<'label'> {
    * 업로드 가능한 확장자를 제한할 수 있습니다.
    */
   accept?: string;
+
+  shape?: CropperProps['cropShape'];
+
+  children?: ReactNode;
+}
+
+function ImageUploaderDefaultPlaceholder() {
+  return (
+    <div css={[tw`flex-center flex-col gap-y-4 w-full h-full`]}>
+      <AddPhotoAlternateOutlinedIcon css={[tw`text-7xl`]} />
+      <span css={[tw`text-2xl font-bold`]}>사진 업로드</span>
+    </div>
+  );
 }
 
 /**
@@ -51,7 +72,9 @@ function ImageUploader({
   croppedImageUrl,
   setCroppedImageUrl,
   size = 320,
-  accept,
+  accept = ALLOWED_EXTENSIONS.map((ext) => `.${ext}`).join(', '),
+  shape = 'rect',
+  children,
   ...props
 }: ImageUploaderProps) {
   const fileInputId = useId();
@@ -71,7 +94,8 @@ function ImageUploader({
       <label
         htmlFor={fileInputId}
         css={[
-          tw`flex-center flex-col gap-y-4 rounded-lg border-solid border-4 border-gray-300 text-gray-300 cursor-pointer`,
+          tw`rounded-lg border-solid border-4 border-gray-300 text-gray-300 cursor-pointer`,
+          shape === 'round' && tw`rounded-full`,
           { width: size, height: size },
         ]}
         {...props}
@@ -83,18 +107,18 @@ function ImageUploader({
           accept={accept}
           css={[tw`hidden`]}
         />
-        {croppedImageUrl ? (
+        {!!croppedImageUrl && (
           <img
             src={croppedImageUrl}
             alt="코디 사진"
-            css={[tw`w-full h-full rounded-[4px]`]}
+            css={[
+              tw`w-full h-full rounded-[4px]`,
+              shape === 'round' && tw`rounded-full`,
+            ]}
           />
-        ) : (
-          <>
-            <AddPhotoAlternateOutlinedIcon css={[tw`text-7xl`]} />
-            <span css={[tw`text-2xl font-bold`]}>사진 업로드</span>
-          </>
         )}
+        {!croppedImageUrl && !children && <ImageUploaderDefaultPlaceholder />}
+        {!croppedImageUrl && children}
       </label>
       {!!croppedImageUrl && (
         <Button
@@ -113,6 +137,7 @@ function ImageUploader({
           setCroppedImage={setImage}
           setCroppedImageUrl={setCroppedImageUrl}
           setShowCropper={setShowCropper}
+          cropShape={shape}
         />
       )}
     </div>
