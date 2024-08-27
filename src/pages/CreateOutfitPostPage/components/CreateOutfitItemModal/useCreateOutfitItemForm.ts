@@ -26,7 +26,7 @@ const schema = z.object({
     .max(20, { message: '브랜드명은 20자 이하여야 합니다.' }),
   purchaseLink: z
     .string()
-    .max(20, { message: '브랜드명은 300자 이하여야 합니다.' })
+    .max(300, { message: '브랜드명은 300자 이하여야 합니다.' })
     .optional(),
   image: fileSchema({
     requiredMessage: '코디 아이템 사진을 업로드해 주세요.',
