@@ -37,7 +37,7 @@ const mockOutfitFeed = {
               name: '와펜 장식 데님 자켓',
               purchaseLink:
                 'https://shopping.naver.com/window-products/brandfashion/9834996725?NaPm=ct%3Dlziny4b4%7Cci%3D003a4ac2ecf3737068c895c28a187279e0dda1c6%7Ctr%3Dslct%7Csn%3D2965231%7Chk%3D1a775ba73e52d5f94819b9720607ea8339ca9b24',
-              imageUrl: item1Image,
+              image: item1Image,
               scrapCount: 0,
               isScrapped: null,
               brand: {
@@ -69,7 +69,7 @@ const mockOutfitFeed = {
               id: 1,
               name: 'T.G.I.F 자카드 니트(SKY BLUE)',
               purchaseLink: 'https://29cm.onelink.me/1080201211/op3y8a1l',
-              imageUrl: item2Image,
+              image: item2Image,
               scrapCount: 1,
               isScrapped: null,
               brand: {

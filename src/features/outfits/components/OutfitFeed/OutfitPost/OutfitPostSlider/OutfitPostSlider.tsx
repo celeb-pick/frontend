@@ -39,7 +39,7 @@ function OutfitPostSlider({ outfitPost, ...props }: OutfitPostSliderProps) {
         {outfitPost.items.map((outfitItem) => (
           <SwiperSlide key={outfitItem.name}>
             <OutfitPostSliderImage
-              src={outfitItem.imageUrl}
+              src={outfitItem.image}
               alt={outfitItem.name}
               purchaseLink={outfitItem.purchaseLink}
             />

@@ -61,7 +61,7 @@ function OutfitItemListRow({
         disabled={disabled}
       />
       <img
-        src={outfitItem.imageUrl}
+        src={outfitItem.image}
         alt={outfitItem.name}
         css={[tw`w-28 h-28 rounded`]}
       />

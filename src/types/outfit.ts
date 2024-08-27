@@ -37,7 +37,7 @@ export type OutfitPostListResponse = PaginationResponse<{
     id: number;
     name: string;
     purchaseLink?: string;
-    imageUrl: string;
+    image: string;
     scrapCount: number;
     isScrapped: boolean | null;
     brand: {
@@ -82,7 +82,7 @@ export type OutfitItemListResponse = PaginationResponse<{
   category: OutfitItemCategory;
   name: string;
   purchaseLink?: string;
-  imageUrl: string;
+  image: string;
   scrapCount: number;
   isScrapped: boolean | null;
   brand: {

@@ -42,7 +42,7 @@ function GridContent({ pagesData }: GridContentProps) {
             css={[tw`relative cursor-pointer`]}
           >
             <img
-              src={outfitItem.imageUrl}
+              src={outfitItem.image}
               alt={outfitItem.name}
               css={[tw`w-full h-full`]}
             />
