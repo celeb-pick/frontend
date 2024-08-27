@@ -77,7 +77,7 @@ const TextField = forwardRef(function TextField(
   const error = hasError || !isEmptyArray(filteredErrorMessages);
 
   return (
-    <div className={clsx('flex w-full flex-col gap-y-2', className)}>
+    <div className={clsx('flex h-[52px] w-full flex-col gap-y-2', className)}>
       <label
         htmlFor={inputId}
         css={[
