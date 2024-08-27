@@ -33,7 +33,7 @@ function CreateOutfitPostTitleStep({
         onChange={title.onChange}
         label="코디 제목"
         minLength={4}
-        maxLength={20}
+        maxLength={40}
         css={[tw`max-w-[360px]`]}
       />
       {errors.title && (

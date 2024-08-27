@@ -56,7 +56,7 @@ function CreateOutfitItemModal({
           value={name.value}
           onChange={name.onChange}
           label="이름"
-          maxLength={20}
+          maxLength={40}
           errorMessages={[errors.name?.message]}
         />
         <OutfitItemCategorySelect
