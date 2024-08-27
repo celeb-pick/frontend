@@ -1,4 +1,8 @@
-import { PaginationQueryParams, PaginationResponse } from './api';
+import {
+  ApiErrorMessagesResponse,
+  PaginationQueryParams,
+  PaginationResponse,
+} from './api';
 
 export type CelebrityCategory =
   | '아이돌'
@@ -18,5 +22,25 @@ export interface CelebrityListRequest {
 export type CelebrityListResponse = PaginationResponse<{
   id: number;
   name: string;
-  profileImageUrl: string;
+  profileImage: string;
+  category: CelebrityCategory;
 }>;
+
+export interface CreateCelebrityRequest {
+  payload: {
+    name: string;
+    profileImage: File;
+    category: CelebrityCategory;
+  };
+}
+
+export type CreateCelebrityErrorResponse = ApiErrorMessagesResponse<
+  CreateCelebrityRequest['payload']
+>;
+
+export interface CreateCelebrityResponse {
+  id: number;
+  name: string;
+  profileImage: string;
+  category: CelebrityCategory;
+}

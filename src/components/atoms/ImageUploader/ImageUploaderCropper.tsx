@@ -1,7 +1,7 @@
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import Cropper, { Area, Point } from 'react-easy-crop';
+import Cropper, { Area, CropperProps, Point } from 'react-easy-crop';
 import tw from 'twin.macro';
 import { blobToFile } from '../../../utils/file';
 import IconButton from '../IconButton';
@@ -12,6 +12,7 @@ interface ImageUploaderCropperProps {
   setCroppedImageUrl: (url: string) => void;
   setCroppedImage: (image: File) => void;
   setShowCropper: (isShow: boolean) => void;
+  cropShape: CropperProps['cropShape'];
 }
 
 function ImageUploaderCropper({
@@ -19,6 +20,7 @@ function ImageUploaderCropper({
   setCroppedImageUrl,
   setCroppedImage,
   setShowCropper,
+  cropShape,
 }: ImageUploaderCropperProps) {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -54,6 +56,7 @@ function ImageUploaderCropper({
         onCropChange={setCrop}
         onCropComplete={onCropComplete}
         onZoomChange={setZoom}
+        cropShape={cropShape}
       />
       <div
         css={[
