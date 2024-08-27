@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import tw from 'twin.macro';
 import Button from '../../../../components/atoms/Button';
 import TextField from '../../../../components/atoms/TextField';
@@ -16,10 +17,16 @@ function CreateCelebrityModal({
   isShow,
   setIsShow,
 }: CreateCelebrityModalProps) {
-  const { mutate, isPending } = useCreateCelebrity();
+  const { mutate, isPending, isSuccess } = useCreateCelebrity();
   const { name, category, profileImage, errors, handleSubmit } =
     useCreateCelebrityForm();
   const hasEmptyField = !name.value || !category.value || !profileImage.value;
+
+  useEffect(() => {
+    if (isSuccess) {
+      setIsShow(false);
+    }
+  }, [isSuccess, setIsShow]);
 
   return (
     <Modal isShow={isShow} setIsShow={setIsShow} title="셀럽 추가">
