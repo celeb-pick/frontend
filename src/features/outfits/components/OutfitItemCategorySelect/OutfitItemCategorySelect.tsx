@@ -1,17 +1,24 @@
 import tw from 'twin.macro';
-import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import Select from '../../../../components/molecules/Select';
 import { SelectOptionsType } from '../../../../components/molecules/Select/types';
 import { OutfitItemCategory } from '../../../../types/outfit';
 
-function OutfitItemCategorySelect() {
-  const [query, setQuery] = useQueryParam(
-    'itemCategory',
-    withDefault(StringParam, null)
-  );
+interface OutfitItemCategorySelectProps {
+  value: string | null | undefined;
+  onChange: (value: string | null | undefined) => void;
+  required?: boolean;
+  placeholder?: string;
+  className?: string;
+}
 
+function OutfitItemCategorySelect({
+  value,
+  onChange,
+  required,
+  placeholder = '카테고리',
+  className,
+}: OutfitItemCategorySelectProps) {
   const options: SelectOptionsType<OutfitItemCategory> = [
-    { value: null, label: '전체' },
     { value: '상의' },
     { value: '하의' },
     { value: '아우터' },
@@ -21,13 +28,18 @@ function OutfitItemCategorySelect() {
     { value: '기타' },
   ];
 
+  if (!required) {
+    options.unshift({ value: null, label: '전체' });
+  }
+
   return (
     <Select
-      value={query}
-      onChangeValue={setQuery}
+      value={value}
+      onChangeValue={onChange}
       options={options}
-      placeholder="카테고리"
+      placeholder={placeholder}
       css={[tw`min-w-[100px] w-[100px]`]}
+      className={className}
     />
   );
 }
