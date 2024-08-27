@@ -2,6 +2,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import { useState } from 'react';
 import tw from 'twin.macro';
 import ImageUploader from '../../../../components/atoms/ImageUploader';
+import CheckroomTwoToneIcon from '@mui/icons-material/CheckroomTwoTone';
 
 interface CreateOutfitItemImageUploaderProps {
   image: File | undefined;
@@ -26,7 +27,7 @@ function CreateOutfitItemImageUploader({
       size={180}
     >
       <div css={[tw`flex-center flex-col gap-y-2 w-full h-full`]}>
-        <PersonOutlineOutlinedIcon css={[tw`text-6xl`]} />
+        <CheckroomTwoToneIcon css={[tw`text-4xl`]} />
         <span css={[tw`text-xl font-bold`]}>사진 업로드</span>
       </div>
     </ImageUploader>
