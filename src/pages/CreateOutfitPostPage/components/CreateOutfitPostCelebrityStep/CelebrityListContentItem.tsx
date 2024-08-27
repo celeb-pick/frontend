@@ -31,7 +31,7 @@ function CelebrityListContentItem({
       ]}
     >
       <Avatar
-        src={celebrity.profileImageUrl}
+        src={celebrity.profileImage}
         size={70}
         alt={`${celebrity.name} 프로필 이미지`}
         css={[isSelected && tw`border-solid border-2 border-indigo-500`]}

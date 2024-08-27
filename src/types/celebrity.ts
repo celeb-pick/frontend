@@ -18,5 +18,6 @@ export interface CelebrityListRequest {
 export type CelebrityListResponse = PaginationResponse<{
   id: number;
   name: string;
-  profileImageUrl: string;
+  profileImage: string;
+  category: CelebrityCategory;
 }>;
