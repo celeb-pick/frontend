@@ -1,11 +1,15 @@
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import tw from 'twin.macro';
 import { useDebounce } from 'use-debounce';
+import Button from '../../../../components/atoms/Button';
 import MoreButton from '../../../../components/atoms/MoreButton';
 import Spinner from '../../../../components/atoms/Spinner';
 import useFetchCelebrityList from '../../../../features/celebrities/queries/useFetchCelebrityList';
 import { CelebrityCategory } from '../../../../types/celebrity';
 import { OutfitPostListRequest } from '../../../../types/outfit';
+import CreateCelebrityModal from '../CreateCelebrityModal';
 import CelebrityListContent from './CelebrityListContent';
 
 interface CelebrityListProps {
@@ -13,6 +17,8 @@ interface CelebrityListProps {
 }
 
 function CelebrityList({ search }: CelebrityListProps) {
+  const [isShowCreateModal, setIsShowCreateModal] = useState(false);
+
   const [searchParams] = useSearchParams();
   const celebrityCategory = searchParams.get(
     'celebrityCategory'
@@ -34,6 +40,10 @@ function CelebrityList({ search }: CelebrityListProps) {
     <div css={[tw`flex flex-col items-center w-full max-w-[420px]`]}>
       <CelebrityListContent pagesData={data.pages} />
       {isFetchingNextPage && <Spinner size={30} css={tw`py-4`} />}
+      <Button onClick={() => setIsShowCreateModal(true)} css={[tw`mt-10`]}>
+        <AddRoundedIcon />
+        <span>셀럽 직접 추가하기</span>
+      </Button>
       {hasNextPage && (
         <MoreButton
           disabled={isFetchingNextPage}
@@ -41,6 +51,10 @@ function CelebrityList({ search }: CelebrityListProps) {
           css={[tw`w-60 mt-10`]}
         />
       )}
+      <CreateCelebrityModal
+        isShow={isShowCreateModal}
+        setIsShow={setIsShowCreateModal}
+      />
     </div>
   );
 }
