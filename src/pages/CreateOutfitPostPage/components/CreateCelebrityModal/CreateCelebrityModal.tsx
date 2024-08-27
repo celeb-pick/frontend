@@ -18,15 +18,22 @@ function CreateCelebrityModal({
   setIsShow,
 }: CreateCelebrityModalProps) {
   const { mutate, isPending, isSuccess } = useCreateCelebrity();
-  const { name, category, profileImage, errors, handleSubmit } =
-    useCreateCelebrityForm();
+  const {
+    name,
+    category,
+    profileImage,
+    errors,
+    reset: resetFormValues,
+    handleSubmit,
+  } = useCreateCelebrityForm();
   const hasEmptyField = !name.value || !category.value || !profileImage.value;
 
   useEffect(() => {
     if (isSuccess) {
       setIsShow(false);
+      resetFormValues();
     }
-  }, [isSuccess, setIsShow]);
+  }, [isSuccess, setIsShow, resetFormValues]);
 
   return (
     <Modal isShow={isShow} setIsShow={setIsShow} title="셀럽 추가">
