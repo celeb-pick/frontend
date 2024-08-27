@@ -1,5 +1,6 @@
 import { axiosInstance } from '../config/axios';
 import type {
+  CreateOutfitItemRequest,
   CreateOutfitPostRequest,
   OutfitItemListRequest,
   OutfitItemListResponse,
@@ -39,4 +40,10 @@ export const createOutfitPost = async ({
   payload,
 }: CreateOutfitPostRequest) => {
   await axiosInstance.postForm('/outfit-posts/', payload);
+};
+
+export const createOutfitItem = async ({
+  payload,
+}: CreateOutfitItemRequest) => {
+  await axiosInstance.postForm('/outfit-items/', payload);
 };

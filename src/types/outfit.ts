@@ -90,3 +90,17 @@ export type OutfitItemListResponse = PaginationResponse<{
     name: string;
   };
 }>;
+
+export interface CreateOutfitItemRequest {
+  payload: {
+    name: string;
+    category: OutfitItemCategory;
+    brandName: string;
+    purchaseLink?: string;
+    image: File;
+  };
+}
+
+export type CreateOutfitItemErrorResponse = ApiErrorMessagesResponse<
+  CreateOutfitItemRequest['payload']
+>;
