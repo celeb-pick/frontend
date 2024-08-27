@@ -10,7 +10,7 @@ const schema = z.object({
   name: z
     .string()
     .min(1, { message: '코디 아이템을 입력해 주세요.' })
-    .max(20, { message: '코디 아이템은 20자 이하여야 합니다.' }),
+    .max(40, { message: '코디 아이템은 40자 이하여야 합니다.' }),
   category: z.union([
     z.literal('상의'),
     z.literal('하의'),
