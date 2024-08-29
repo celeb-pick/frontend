@@ -1,8 +1,7 @@
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import CheckroomTwoToneIcon from '@mui/icons-material/CheckroomTwoTone';
 import { useState } from 'react';
 import tw from 'twin.macro';
 import ImageUploader from '../../../../components/atoms/ImageUploader';
-import CheckroomTwoToneIcon from '@mui/icons-material/CheckroomTwoTone';
 
 interface CreateOutfitItemImageUploaderProps {
   image: File | undefined;
