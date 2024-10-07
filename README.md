@@ -1,6 +1,6 @@
 # 프로젝트 설명
 
-피드 형태로 셀럽들이 입은 옷과 악세서리 등의 코디 정보를 공유하는 서비스 입니다.
+피드 형태로 셀럽들이 입은 옷과 악세서리 등의 코디 정보를 공유하는 서비스 입니다. [(서비스 링크)](https://celebpick.site/)
 
 ![image](https://github.com/user-attachments/assets/8bfbb38a-31a7-4120-a37c-03eb089adb86)
 
