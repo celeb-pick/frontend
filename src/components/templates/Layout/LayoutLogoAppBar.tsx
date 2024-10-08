@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 function LayoutLogoAppBar() {
   return (
     <div className="custom-app-bar-container">
-      <Link to="/" css={[tw`font-logo font-medium text-lg py-4`]}>
+      <Link to="/" css={[tw`font-logo font-medium text-xl py-4`]}>
         셀럽픽
       </Link>
     </div>
