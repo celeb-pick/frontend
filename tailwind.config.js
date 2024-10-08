@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Pretendard Variable', ...defaultTheme.fontFamily.sans],
+        logo: ['BMJUA', ...defaultTheme.fontFamily.sans],
       },
     },
   },

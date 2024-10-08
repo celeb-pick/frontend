@@ -19,7 +19,7 @@ function LoginPage() {
         onSubmit={loginForm.handleSubmit((payload) => mutate({ payload }))}
         css={[tw`flex-center flex-col w-72`]}
       >
-        <span css={[tw`font-bold text-4xl mb-16`]}>celeb pick</span>
+        <span css={[tw`font-logo text-4xl mb-16`]}>셀럽픽</span>
         <TextField
           type="email"
           label="이메일"
