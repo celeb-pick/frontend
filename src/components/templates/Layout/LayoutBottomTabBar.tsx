@@ -42,7 +42,7 @@ function LayoutBottomTabBar() {
       ]}
     >
       <TabNavigator icon={<HomeOutlinedIcon />} label="홈" to="/" />
-      <TabNavigator icon={<SearchRoundedIcon />} label="검색" to="" />
+      <TabNavigator icon={<SearchRoundedIcon />} label="검색" to="/search" />
       <TabNavigator
         icon={<AddBoxOutlinedIcon />}
         label="코디 추가"
