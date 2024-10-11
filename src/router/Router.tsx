@@ -5,6 +5,7 @@ import LoginPage from '../pages/LoginPage';
 import MyScrapOutfitItemPage from '../pages/MyScrapOutfitItemPage';
 import MyScrapOutfitPostPage from '../pages/MyScrapOutfitPostPage';
 import MyScrapPage from '../pages/MyScrapPage';
+import SearchPage from '../pages/SearchPage';
 import SignupPage from '../pages/SignupPage';
 import ProtectedRoute from './ProtectedRoute';
 import RouteWrapper from './RouteWrapper';
@@ -19,6 +20,10 @@ const router: RouterType = createBrowserRouter([
       {
         path: '/',
         element: <HomePage />,
+      },
+      {
+        path: '/search',
+        element: <SearchPage />,
       },
       {
         path: '/login',

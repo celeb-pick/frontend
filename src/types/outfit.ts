@@ -72,8 +72,8 @@ export type OutfitItemCategory =
 
 export interface OutfitItemListRequest {
   queryParams: {
-    itemCategory?: OutfitItemCategory;
-    search?: string;
+    itemCategory?: OutfitItemCategory | null;
+    search?: string | null;
   } & PaginationQueryParams;
 }
 
@@ -83,6 +83,7 @@ export type OutfitItemListResponse = PaginationResponse<{
   name: string;
   purchaseLink?: string;
   image: string;
+  relatedOutfitPostCount: number;
   scrapCount: number;
   isScrapped: boolean | null;
   brand: {

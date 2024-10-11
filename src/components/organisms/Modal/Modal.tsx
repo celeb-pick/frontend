@@ -1,5 +1,5 @@
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import tw from 'twin.macro';
 import IconButton from '../../atoms/IconButton';
@@ -13,6 +13,17 @@ interface ModalProps {
 }
 
 function Modal({ isShow, setIsShow, title, className, children }: ModalProps) {
+  useEffect(() => {
+    if (!isShow) {
+      return undefined;
+    }
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isShow]);
+
   if (!isShow) {
     return null;
   }
@@ -24,7 +35,11 @@ function Modal({ isShow, setIsShow, title, className, children }: ModalProps) {
       ]}
       className={className}
     >
-      <div css={[tw`w-[90vw] max-w-[500px] bg-white rounded-lg`]}>
+      <div
+        css={[
+          tw`w-[90vw] max-w-[500px] max-h-[90vh] overflow-y-auto bg-white rounded-lg`,
+        ]}
+      >
         <div
           css={[
             tw`flex-y-center justify-between px-2 py-2.5 border-solid border-b`,

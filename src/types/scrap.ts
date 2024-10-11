@@ -17,6 +17,7 @@ export type MyScrapOutfitItemListResponse = PaginationResponse<{
   name: string;
   purchaseLink?: string;
   image: string;
+  relatedOutfitPostCount: number;
   scrapCount: number;
   isScrapped: boolean | null;
   brand: {
