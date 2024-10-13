@@ -56,8 +56,7 @@ function LayoutBottomTabBar() {
       <TabNavigator
         icon={<PersonOutlineOutlinedIcon />}
         label="마이"
-        // TODO: 로그인시 '/users/me' 내 프로필 페이지로 라우팅
-        to={isAuthenticated ? '' : '/login'}
+        to={isAuthenticated ? '/users/me' : '/login'}
       />
     </div>
   );

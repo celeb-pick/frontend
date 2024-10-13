@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import CreateOutfitPostPage from '../pages/CreateOutfitPostPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
+import MyPage from '../pages/MyPage';
 import MyScrapOutfitItemPage from '../pages/MyScrapOutfitItemPage';
 import MyScrapOutfitPostPage from '../pages/MyScrapOutfitPostPage';
 import MyScrapPage from '../pages/MyScrapPage';
@@ -38,6 +39,14 @@ const router: RouterType = createBrowserRouter([
         element: (
           <ProtectedRoute permission="anonymous">
             <SignupPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/users/me',
+        element: (
+          <ProtectedRoute permission="user">
+            <MyPage />
           </ProtectedRoute>
         ),
       },
