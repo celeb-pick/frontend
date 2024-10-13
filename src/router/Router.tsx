@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import CreateOutfitPostPage from '../pages/CreateOutfitPostPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
+import MyPage from '../pages/MyPage';
 import MyScrapOutfitItemPage from '../pages/MyScrapOutfitItemPage';
 import MyScrapOutfitPostPage from '../pages/MyScrapOutfitPostPage';
 import MyScrapPage from '../pages/MyScrapPage';
@@ -9,6 +10,7 @@ import SearchPage from '../pages/SearchPage';
 import SignupPage from '../pages/SignupPage';
 import ProtectedRoute from './ProtectedRoute';
 import RouteWrapper from './RouteWrapper';
+import MyOutfitPostPage from '../pages/MyOutfitPostPage';
 
 type RouterType = ReturnType<typeof createBrowserRouter>;
 
@@ -38,6 +40,22 @@ const router: RouterType = createBrowserRouter([
         element: (
           <ProtectedRoute permission="anonymous">
             <SignupPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/users/me',
+        element: (
+          <ProtectedRoute permission="user">
+            <MyPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/users/me/outfit-posts/:outfitPostId',
+        element: (
+          <ProtectedRoute permission="user">
+            <MyOutfitPostPage />
           </ProtectedRoute>
         ),
       },
