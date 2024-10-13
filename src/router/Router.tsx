@@ -10,6 +10,7 @@ import SearchPage from '../pages/SearchPage';
 import SignupPage from '../pages/SignupPage';
 import ProtectedRoute from './ProtectedRoute';
 import RouteWrapper from './RouteWrapper';
+import MyOutfitPostPage from '../pages/MyOutfitPostPage';
 
 type RouterType = ReturnType<typeof createBrowserRouter>;
 
@@ -47,6 +48,14 @@ const router: RouterType = createBrowserRouter([
         element: (
           <ProtectedRoute permission="user">
             <MyPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/users/me/outfit-posts/:outfitPostId',
+        element: (
+          <ProtectedRoute permission="user">
+            <MyOutfitPostPage />
           </ProtectedRoute>
         ),
       },
