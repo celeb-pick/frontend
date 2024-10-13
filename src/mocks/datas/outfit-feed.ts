@@ -28,7 +28,7 @@ const mockOutfitFeed = {
           },
           creator: {
             id: 1,
-            profileImageUrl: '',
+            profileImage: '',
             nickname: '셀럽픽',
           },
           items: [
@@ -61,7 +61,7 @@ const mockOutfitFeed = {
           },
           creator: {
             id: 1,
-            profileImageUrl: '',
+            profileImage: '',
             nickname: '셀럽픽',
           },
           items: [

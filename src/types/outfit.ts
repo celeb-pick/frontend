@@ -30,7 +30,7 @@ export type OutfitPostListResponse = PaginationResponse<{
   };
   creator: {
     id: number;
-    profileImageUrl?: string;
+    profileImage?: string;
     nickname: string;
   };
   items: {
