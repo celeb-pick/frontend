@@ -23,8 +23,8 @@ const useCreateOutfitPost = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['fetchOutfitPostList'] });
-      // TODO 내가 추가한 코디 페이지로 이동하게 변경
-      navigate('/');
+      queryClient.invalidateQueries({ queryKey: ['fetchMyOutfitPostList'] });
+      navigate('/users/me');
     },
     onError: (error) => {
       const serverError =
